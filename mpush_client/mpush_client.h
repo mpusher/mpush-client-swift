@@ -7,6 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "tcpsocket.h"
+#import "RFIReader.h"
+#import "RFIWriter.h"
+@import CommonCrypto;
+@import zlib;
+//#import <CommonCrypto/CommonCryptor.h>
+//#import <zlib.h>
 
 //! Project version number for mpush_client.
 FOUNDATION_EXPORT double mpush_clientVersionNumber;

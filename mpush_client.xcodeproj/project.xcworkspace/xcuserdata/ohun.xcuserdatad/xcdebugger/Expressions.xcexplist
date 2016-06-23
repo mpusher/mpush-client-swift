@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "BaseMessage.decodeBody() throws -&gt; ():BaseMessage.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "packet">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "static MPUtils.headerFromString(String?) -&gt; [String : String]?:MPUtils.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "name.endIndex">
+            </PersistentString>
+            <PersistentString
+               value = "value.startIndex">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "mpush_clientTests.testExample() -&gt; ():mpush_clientTests.swift">
+      </ContextState>
+      <ContextState
+         contextName = "HandshakeMessage.encode(RFIWriter) -&gt; ():HandshakeMessage.swift">
+      </ContextState>
+      <ContextState
+         contextName = "RequestTask.onResponse(HttpResponse) -&gt; ():HttpRequestQueue.swift">
+      </ContextState>
+      <ContextState
+         contextName = "HttpResponseMessage.decode(RFIReader) -&gt; ():HttpResponseMessage.swift">
+      </ContextState>
+      <ContextState
+         contextName = "-[RFIReader readData:]:RFIReader.m">
+      </ContextState>
+      <ContextState
+         contextName = "PacketReader.start() -&gt; ():PacketReader.swift">
+      </ContextState>
+      <ContextState
+         contextName = "PacketReader.doRead() -&gt; ():PacketReader.swift">
+      </ContextState>
+      <ContextState
+         contextName = "MessageDispatcher.onReceive(Packet, connection : Connection) -&gt; ():MessageDispatcher.swift">
+      </ContextState>
+      <ContextState
+         contextName = "RequestTask.get() -&gt; HttpResponse:HttpRequestQueue.swift">
+      </ContextState>
+      <ContextState
+         contextName = "HandshakeOkHandler.handle(HandshakeOkMessage) -&gt; ():HandshakeOkHandler.swift">
+      </ContextState>
+      <ContextState
+         contextName = "Packet.debugDescription.getter:mpush_clientTests.swift">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
