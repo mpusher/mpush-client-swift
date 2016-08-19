@@ -25,7 +25,6 @@ final class PacketDecoder {
                 return Packet.HB_PACKET;
             }
             buffer.reset();
-        
         }
         return nil;
     }
@@ -54,7 +53,7 @@ final class PacketDecoder {
             let data = buffer.readBytes(bodyLength)
             body = NSData(bytes: data, length: data.count);
         }
-        return Packet(cmd: command,cc: cc,flags: flags,sessionId: sessionId,lrc:lrc,body:body);
+        return Packet(cmd: command, cc: cc, flags: flags, sessionId: sessionId, lrc: lrc, body: body);
     }
     
 }

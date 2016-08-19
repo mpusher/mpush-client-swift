@@ -16,7 +16,7 @@ protocol ClientListener {
     
     func onHandshakeOk(client: Client, heartbeat: Int);
     
-    func onReceivePush(client: Client, content: String);
+    func onReceivePush(client: Client, content: NSData);
     
     func onKickUser(deviceId: String, userId: String);
 }

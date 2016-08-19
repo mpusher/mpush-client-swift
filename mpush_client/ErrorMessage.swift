@@ -9,14 +9,16 @@
 import Foundation
 
 final class ErrorMessage: ByteBufMessage, CustomDebugStringConvertible {
-    var cmd:Int8 = 0;
-    var code:Int8 = 0;
-    var reason:String?;
+    var cmd: Int8 = 0;
+    var code: Int8 = 0;
+    var reason: String?;
+    var data: String?;
 
     override func decode(body: RFIReader) {
         cmd = body.readByte();
         code = body.readByte();
         reason = body.readString();
+        data = body.readString();
     }
     
     

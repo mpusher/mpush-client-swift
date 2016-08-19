@@ -60,7 +60,7 @@ class mpush_clientTests: XCTestCase {
             }
         }
         
-        func onReceivePush(client: Client, content: String){}
+        func onReceivePush(client: Client, content: NSData){}
         
         func onKickUser(deviceId: String, userId: String){}
     }

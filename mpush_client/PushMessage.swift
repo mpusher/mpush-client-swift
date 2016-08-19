@@ -9,13 +9,13 @@
 import Foundation
 
 final class PushMessage: BaseMessage, CustomDebugStringConvertible {
-    var content:String!;
+    var content:NSData!;
     
     override func decode(body:NSData) {
-        content = String(data: body, encoding:NSUTF8StringEncoding)
+        content = body;
     }
     
     var debugDescription: String {
-        return "PushMessage={content:\(content)}"
+        return "PushMessage={content:\(content.length)}"
     }
 }
