@@ -10,77 +10,77 @@
 		383B915B1D12100E0064910A /* mpush_client.h in Headers */ = {isa = PBXBuildFile; fileRef = 383B915A1D12100E0064910A /* mpush_client.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		383B91621D12100E0064910A /* mpush_client.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 383B91571D12100E0064910A /* mpush_client.framework */; };
 		383B91671D12100E0064910A /* mpush_clientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91661D12100E0064910A /* mpush_clientTests.swift */; };
-		383B91891D1210F60064910A /* AESUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91741D1210F60064910A /* AESUtils.swift */; };
-		383B918A1D1210F60064910A /* BaseMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91751D1210F60064910A /* BaseMessage.swift */; };
-		383B918B1D1210F60064910A /* ByteBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91761D1210F60064910A /* ByteBuffer.swift */; };
-		383B918C1D1210F60064910A /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91771D1210F60064910A /* Client.swift */; };
-		383B918D1D1210F60064910A /* HandshakeMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91781D1210F60064910A /* HandshakeMessage.swift */; };
-		383B918E1D1210F60064910A /* HandshakeOkMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91791D1210F60064910A /* HandshakeOkMessage.swift */; };
-		383B918F1D1210F60064910A /* MessageDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B917A1D1210F60064910A /* MessageDispatcher.swift */; };
-		383B91921D1210F60064910A /* Packet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B917D1D1210F60064910A /* Packet.swift */; };
-		383B91931D1210F60064910A /* PacketReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B917E1D1210F60064910A /* PacketReader.swift */; };
-		383B91941D1210F60064910A /* PacketWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B917F1D1210F60064910A /* PacketWriter.swift */; };
-		383B91951D1210F60064910A /* RASUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91801D1210F60064910A /* RASUtils.swift */; };
-		383B91961D1210F60064910A /* RFIReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 383B91811D1210F60064910A /* RFIReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		383B91971D1210F60064910A /* RFIReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 383B91821D1210F60064910A /* RFIReader.m */; };
-		383B91981D1210F60064910A /* RFIWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 383B91831D1210F60064910A /* RFIWriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		383B91991D1210F60064910A /* RFIWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 383B91841D1210F60064910A /* RFIWriter.m */; };
-		383B919A1D1210F60064910A /* TcpConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91851D1210F60064910A /* TcpConnection.swift */; };
-		383B919B1D1210F60064910A /* tcpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = 383B91861D1210F60064910A /* tcpsocket.c */; };
-		383B919C1D1210F60064910A /* tcpsocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 383B91871D1210F60064910A /* tcpsocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		383B919D1D1210F60064910A /* UnsafeBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91881D1210F60064910A /* UnsafeBuffer.swift */; };
 		383B91A91D124BE20064910A /* modules in Resources */ = {isa = PBXBuildFile; fileRef = 383B91A81D124BE20064910A /* modules */; };
-		383B91B11D125E320064910A /* NSData+Z.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91B01D125E320064910A /* NSData+Z.swift */; };
 		383B91B21D125F170064910A /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 383B91AE1D125CA90064910A /* libz.tbd */; };
-		383B91B51D12642E0064910A /* ClientConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91B31D12642E0064910A /* ClientConfig.swift */; };
-		383B91B61D12642E0064910A /* MpushClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91B41D12642E0064910A /* MpushClient.swift */; };
-		383B91C31D12697A0064910A /* MpushProtocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91C21D12697A0064910A /* MpushProtocal.swift */; };
-		383B91C51D126AB30064910A /* AllotClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91C41D126AB30064910A /* AllotClient.swift */; };
-		383B91C71D127B090064910A /* PacketEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91C61D127B090064910A /* PacketEncoder.swift */; };
-		383B91C91D127B1D0064910A /* PacketDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91C81D127B1D0064910A /* PacketDecoder.swift */; };
-		383B91CB1D127C130064910A /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91CA1D127C130064910A /* Command.swift */; };
-		383B91CE1D12FD8E0064910A /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91CD1D12FD8E0064910A /* Connection.swift */; };
-		383B91D01D12FF3B0064910A /* Cipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91CF1D12FF3B0064910A /* Cipher.swift */; };
-		383B91D21D1300450064910A /* SessionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91D11D1300450064910A /* SessionContext.swift */; };
-		383B91D41D13007E0064910A /* SessionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91D31D13007E0064910A /* SessionStorage.swift */; };
-		383B91D61D13D4880064910A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91D51D13D4880064910A /* Message.swift */; };
-		383B91D81D1406960064910A /* ByteBufMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91D71D1406960064910A /* ByteBufMessage.swift */; };
-		383B91DA1D143BC80064910A /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91D91D143BC80064910A /* ErrorMessage.swift */; };
-		383B91DC1D143BDB0064910A /* OkMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91DB1D143BDB0064910A /* OkMessage.swift */; };
-		383B91DF1D143C370064910A /* HeartbeatHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91DE1D143C370064910A /* HeartbeatHandler.swift */; };
-		383B91E11D143C590064910A /* HandshakeOkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91E01D143C590064910A /* HandshakeOkHandler.swift */; };
-		383B91E31D143DA30064910A /* PacketReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91E21D143DA30064910A /* PacketReceiver.swift */; };
-		383B91E51D143F900064910A /* MessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91E41D143F900064910A /* MessageHandler.swift */; };
-		383B91E71D1441100064910A /* BaseMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91E61D1441100064910A /* BaseMessageHandler.swift */; };
-		383B91E91D14E2B90064910A /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91E81D14E2B90064910A /* Logger.swift */; };
-		383B91EB1D154BE60064910A /* RsaCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91EA1D154BE60064910A /* RsaCipher.swift */; };
-		383B91ED1D154BFC0064910A /* AesCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91EC1D154BFC0064910A /* AesCipher.swift */; };
-		383B91EF1D1561900064910A /* ClientListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91EE1D1561900064910A /* ClientListener.swift */; };
-		383B91F11D1562820064910A /* DefaultClientListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91F01D1562820064910A /* DefaultClientListener.swift */; };
-		383B91F41D1567120064910A /* CipherBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91F31D1567120064910A /* CipherBox.swift */; };
-		383B91F61D1599DD0064910A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91F51D1599DD0064910A /* Extensions.swift */; };
-		383B91F81D168E140064910A /* ConnectThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91F71D168E140064910A /* ConnectThread.swift */; };
-		383B91FA1D17BDA10064910A /* OkMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91F91D17BDA10064910A /* OkMessageHandler.swift */; };
-		383B91FC1D17BE170064910A /* ErrorMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91FB1D17BE170064910A /* ErrorMessageHandler.swift */; };
-		383B91FE1D17C1BB0064910A /* KickUserMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91FD1D17C1BB0064910A /* KickUserMessage.swift */; };
-		383B92001D17C28C0064910A /* KickUserHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B91FF1D17C28C0064910A /* KickUserHandler.swift */; };
-		383B92021D17C3890064910A /* BindUserMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B92011D17C3890064910A /* BindUserMessage.swift */; };
-		383B92041D17C48E0064910A /* PushMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B92031D17C48E0064910A /* PushMessage.swift */; };
-		383B92061D17C50B0064910A /* PushMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B92051D17C50B0064910A /* PushMessageHandler.swift */; };
-		383B92091D1804280064910A /* FileSessionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B92081D1804280064910A /* FileSessionStorage.swift */; };
-		383B920B1D1808D90064910A /* PersistentSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B920A1D1808D90064910A /* PersistentSession.swift */; };
-		383B920D1D18196C0064910A /* FastConnectMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B920C1D18196C0064910A /* FastConnectMessage.swift */; };
-		383B920F1D181A470064910A /* FastConnectOkMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B920E1D181A470064910A /* FastConnectOkMessage.swift */; };
-		383B92111D181ADC0064910A /* FastConnectOkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B92101D181ADC0064910A /* FastConnectOkHandler.swift */; };
-		383B92141D18CDEB0064910A /* HttpCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B92131D18CDEB0064910A /* HttpCallback.swift */; };
-		383B92161D18CE450064910A /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B92151D18CE450064910A /* HttpRequest.swift */; };
-		383B92181D18E8920064910A /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B92171D18E8920064910A /* HttpResponse.swift */; };
-		383B921A1D18E98C0064910A /* HttpRequestMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B92191D18E98C0064910A /* HttpRequestMessage.swift */; };
-		383B921C1D18EBD80064910A /* MPUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B921B1D18EBD80064910A /* MPUtils.swift */; };
-		383B921E1D18FE430064910A /* HttpResponseMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B921D1D18FE430064910A /* HttpResponseMessage.swift */; };
-		383B92201D18FFF80064910A /* HttpProxyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B921F1D18FFF80064910A /* HttpProxyHandler.swift */; };
-		383B92221D1945A90064910A /* HttpRequestQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B92211D1945A90064910A /* HttpRequestQueue.swift */; };
-		383B92241D198E000064910A /* ResonseFuture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383B92231D198E000064910A /* ResonseFuture.swift */; };
+		387E864F1D6D495900E7DE5A /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E85FE1D6D495900E7DE5A /* Client.swift */; };
+		387E86501D6D495900E7DE5A /* ClientListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E85FF1D6D495900E7DE5A /* ClientListener.swift */; };
+		387E86511D6D495900E7DE5A /* Cipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86011D6D495900E7DE5A /* Cipher.swift */; };
+		387E86521D6D495900E7DE5A /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86021D6D495900E7DE5A /* Connection.swift */; };
+		387E86531D6D495900E7DE5A /* SessionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86031D6D495900E7DE5A /* SessionContext.swift */; };
+		387E86541D6D495900E7DE5A /* SessionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86041D6D495900E7DE5A /* SessionStorage.swift */; };
+		387E86551D6D495900E7DE5A /* HttpCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86061D6D495900E7DE5A /* HttpCallback.swift */; };
+		387E86561D6D495900E7DE5A /* HttpRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86071D6D495900E7DE5A /* HttpRequest.swift */; };
+		387E86571D6D495900E7DE5A /* HttpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86081D6D495900E7DE5A /* HttpResponse.swift */; };
+		387E86581D6D495900E7DE5A /* ResonseFuture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86091D6D495900E7DE5A /* ResonseFuture.swift */; };
+		387E86591D6D495900E7DE5A /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E860A1D6D495900E7DE5A /* Message.swift */; };
+		387E865A1D6D495900E7DE5A /* MessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E860B1D6D495900E7DE5A /* MessageHandler.swift */; };
+		387E865B1D6D495900E7DE5A /* PacketReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E860C1D6D495900E7DE5A /* PacketReceiver.swift */; };
+		387E865C1D6D495900E7DE5A /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E860E1D6D495900E7DE5A /* Command.swift */; };
+		387E865D1D6D495900E7DE5A /* MpushProtocal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E860F1D6D495900E7DE5A /* MpushProtocal.swift */; };
+		387E865E1D6D495900E7DE5A /* Packet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86101D6D495900E7DE5A /* Packet.swift */; };
+		387E865F1D6D495900E7DE5A /* AllotClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86121D6D495900E7DE5A /* AllotClient.swift */; };
+		387E86601D6D495900E7DE5A /* ClientConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86131D6D495900E7DE5A /* ClientConfig.swift */; };
+		387E86611D6D495900E7DE5A /* ConnectThread.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86141D6D495900E7DE5A /* ConnectThread.swift */; };
+		387E86621D6D495900E7DE5A /* DefaultClientListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86151D6D495900E7DE5A /* DefaultClientListener.swift */; };
+		387E86631D6D495900E7DE5A /* HttpRequestQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86161D6D495900E7DE5A /* HttpRequestQueue.swift */; };
+		387E86641D6D495900E7DE5A /* MessageDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86171D6D495900E7DE5A /* MessageDispatcher.swift */; };
+		387E86651D6D495900E7DE5A /* MpushClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86181D6D495900E7DE5A /* MpushClient.swift */; };
+		387E86661D6D495900E7DE5A /* TcpConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86191D6D495900E7DE5A /* TcpConnection.swift */; };
+		387E86671D6D495900E7DE5A /* PacketDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E861B1D6D495900E7DE5A /* PacketDecoder.swift */; };
+		387E86681D6D495900E7DE5A /* PacketEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E861C1D6D495900E7DE5A /* PacketEncoder.swift */; };
+		387E86691D6D495900E7DE5A /* PacketReader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E861D1D6D495900E7DE5A /* PacketReader.swift */; };
+		387E866A1D6D495900E7DE5A /* PacketWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E861E1D6D495900E7DE5A /* PacketWriter.swift */; };
+		387E866B1D6D495900E7DE5A /* BaseMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86201D6D495900E7DE5A /* BaseMessageHandler.swift */; };
+		387E866C1D6D495900E7DE5A /* ErrorMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86211D6D495900E7DE5A /* ErrorMessageHandler.swift */; };
+		387E866D1D6D495900E7DE5A /* FastConnectOkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86221D6D495900E7DE5A /* FastConnectOkHandler.swift */; };
+		387E866E1D6D495900E7DE5A /* HandshakeOkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86231D6D495900E7DE5A /* HandshakeOkHandler.swift */; };
+		387E866F1D6D495900E7DE5A /* HeartbeatHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86241D6D495900E7DE5A /* HeartbeatHandler.swift */; };
+		387E86701D6D495900E7DE5A /* HttpProxyHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86251D6D495900E7DE5A /* HttpProxyHandler.swift */; };
+		387E86711D6D495900E7DE5A /* KickUserHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86261D6D495900E7DE5A /* KickUserHandler.swift */; };
+		387E86721D6D495900E7DE5A /* OkMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86271D6D495900E7DE5A /* OkMessageHandler.swift */; };
+		387E86731D6D495900E7DE5A /* PushMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86281D6D495900E7DE5A /* PushMessageHandler.swift */; };
+		387E86741D6D495900E7DE5A /* BaseMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E862A1D6D495900E7DE5A /* BaseMessage.swift */; };
+		387E86751D6D495900E7DE5A /* BindUserMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E862B1D6D495900E7DE5A /* BindUserMessage.swift */; };
+		387E86761D6D495900E7DE5A /* ByteBufMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E862C1D6D495900E7DE5A /* ByteBufMessage.swift */; };
+		387E86771D6D495900E7DE5A /* ErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E862D1D6D495900E7DE5A /* ErrorMessage.swift */; };
+		387E86781D6D495900E7DE5A /* FastConnectMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E862E1D6D495900E7DE5A /* FastConnectMessage.swift */; };
+		387E86791D6D495900E7DE5A /* FastConnectOkMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E862F1D6D495900E7DE5A /* FastConnectOkMessage.swift */; };
+		387E867A1D6D495900E7DE5A /* HandshakeMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86301D6D495900E7DE5A /* HandshakeMessage.swift */; };
+		387E867B1D6D495900E7DE5A /* HandshakeOkMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86311D6D495900E7DE5A /* HandshakeOkMessage.swift */; };
+		387E867C1D6D495900E7DE5A /* HttpRequestMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86321D6D495900E7DE5A /* HttpRequestMessage.swift */; };
+		387E867D1D6D495900E7DE5A /* HttpResponseMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86331D6D495900E7DE5A /* HttpResponseMessage.swift */; };
+		387E867E1D6D495900E7DE5A /* KickUserMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86341D6D495900E7DE5A /* KickUserMessage.swift */; };
+		387E867F1D6D495900E7DE5A /* OkMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86351D6D495900E7DE5A /* OkMessage.swift */; };
+		387E86801D6D495900E7DE5A /* PushMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86361D6D495900E7DE5A /* PushMessage.swift */; };
+		387E86811D6D495900E7DE5A /* AesCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86381D6D495900E7DE5A /* AesCipher.swift */; };
+		387E86821D6D495900E7DE5A /* CipherBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86391D6D495900E7DE5A /* CipherBox.swift */; };
+		387E86831D6D495900E7DE5A /* RsaCipher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E863A1D6D495900E7DE5A /* RsaCipher.swift */; };
+		387E86841D6D495900E7DE5A /* FileSessionStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E863C1D6D495900E7DE5A /* FileSessionStorage.swift */; };
+		387E86851D6D495900E7DE5A /* PersistentSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E863D1D6D495900E7DE5A /* PersistentSession.swift */; };
+		387E86861D6D495900E7DE5A /* AESUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E863F1D6D495900E7DE5A /* AESUtils.swift */; };
+		387E86871D6D495900E7DE5A /* ByteBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86411D6D495900E7DE5A /* ByteBuffer.swift */; };
+		387E86881D6D495900E7DE5A /* RFIReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 387E86421D6D495900E7DE5A /* RFIReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		387E86891D6D495900E7DE5A /* RFIReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 387E86431D6D495900E7DE5A /* RFIReader.m */; };
+		387E868A1D6D495900E7DE5A /* RFIWriter.h in Headers */ = {isa = PBXBuildFile; fileRef = 387E86441D6D495900E7DE5A /* RFIWriter.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		387E868B1D6D495900E7DE5A /* RFIWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 387E86451D6D495900E7DE5A /* RFIWriter.m */; };
+		387E868C1D6D495900E7DE5A /* UnsafeBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86461D6D495900E7DE5A /* UnsafeBuffer.swift */; };
+		387E868D1D6D495900E7DE5A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86471D6D495900E7DE5A /* Extensions.swift */; };
+		387E868E1D6D495900E7DE5A /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86481D6D495900E7DE5A /* Logger.swift */; };
+		387E868F1D6D495900E7DE5A /* MPUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E86491D6D495900E7DE5A /* MPUtils.swift */; };
+		387E86901D6D495900E7DE5A /* NSData+Z.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E864A1D6D495900E7DE5A /* NSData+Z.swift */; };
+		387E86911D6D495900E7DE5A /* RASUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E864B1D6D495900E7DE5A /* RASUtils.swift */; };
+		387E86921D6D495900E7DE5A /* tcpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = 387E864D1D6D495900E7DE5A /* tcpsocket.c */; };
+		387E86931D6D495900E7DE5A /* tcpsocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 387E864E1D6D495900E7DE5A /* tcpsocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,78 +99,78 @@
 		383B91611D12100E0064910A /* mpush_clientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mpush_clientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		383B91661D12100E0064910A /* mpush_clientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mpush_clientTests.swift; sourceTree = "<group>"; };
 		383B91681D12100E0064910A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		383B91741D1210F60064910A /* AESUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AESUtils.swift; sourceTree = "<group>"; };
-		383B91751D1210F60064910A /* BaseMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMessage.swift; sourceTree = "<group>"; };
-		383B91761D1210F60064910A /* ByteBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ByteBuffer.swift; sourceTree = "<group>"; };
-		383B91771D1210F60064910A /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
-		383B91781D1210F60064910A /* HandshakeMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandshakeMessage.swift; sourceTree = "<group>"; };
-		383B91791D1210F60064910A /* HandshakeOkMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandshakeOkMessage.swift; sourceTree = "<group>"; };
-		383B917A1D1210F60064910A /* MessageDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDispatcher.swift; sourceTree = "<group>"; };
-		383B917D1D1210F60064910A /* Packet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Packet.swift; sourceTree = "<group>"; };
-		383B917E1D1210F60064910A /* PacketReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacketReader.swift; sourceTree = "<group>"; };
-		383B917F1D1210F60064910A /* PacketWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacketWriter.swift; sourceTree = "<group>"; };
-		383B91801D1210F60064910A /* RASUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RASUtils.swift; sourceTree = "<group>"; };
-		383B91811D1210F60064910A /* RFIReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFIReader.h; sourceTree = "<group>"; };
-		383B91821D1210F60064910A /* RFIReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFIReader.m; sourceTree = "<group>"; };
-		383B91831D1210F60064910A /* RFIWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFIWriter.h; sourceTree = "<group>"; };
-		383B91841D1210F60064910A /* RFIWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFIWriter.m; sourceTree = "<group>"; };
-		383B91851D1210F60064910A /* TcpConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TcpConnection.swift; sourceTree = "<group>"; };
-		383B91861D1210F60064910A /* tcpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tcpsocket.c; sourceTree = "<group>"; };
-		383B91871D1210F60064910A /* tcpsocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tcpsocket.h; sourceTree = "<group>"; };
-		383B91881D1210F60064910A /* UnsafeBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsafeBuffer.swift; sourceTree = "<group>"; };
 		383B91A81D124BE20064910A /* modules */ = {isa = PBXFileReference; lastKnownFileType = folder; path = modules; sourceTree = "<group>"; };
 		383B91AE1D125CA90064910A /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		383B91B01D125E320064910A /* NSData+Z.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+Z.swift"; sourceTree = "<group>"; };
-		383B91B31D12642E0064910A /* ClientConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientConfig.swift; sourceTree = "<group>"; };
-		383B91B41D12642E0064910A /* MpushClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MpushClient.swift; sourceTree = "<group>"; };
 		383B91C01D1268650064910A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		383B91C21D12697A0064910A /* MpushProtocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MpushProtocal.swift; sourceTree = "<group>"; };
-		383B91C41D126AB30064910A /* AllotClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllotClient.swift; sourceTree = "<group>"; };
-		383B91C61D127B090064910A /* PacketEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacketEncoder.swift; sourceTree = "<group>"; };
-		383B91C81D127B1D0064910A /* PacketDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacketDecoder.swift; sourceTree = "<group>"; };
-		383B91CA1D127C130064910A /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
-		383B91CD1D12FD8E0064910A /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
-		383B91CF1D12FF3B0064910A /* Cipher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cipher.swift; sourceTree = "<group>"; };
-		383B91D11D1300450064910A /* SessionContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionContext.swift; sourceTree = "<group>"; };
-		383B91D31D13007E0064910A /* SessionStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionStorage.swift; sourceTree = "<group>"; };
-		383B91D51D13D4880064910A /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		383B91D71D1406960064910A /* ByteBufMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ByteBufMessage.swift; sourceTree = "<group>"; };
-		383B91D91D143BC80064910A /* ErrorMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
-		383B91DB1D143BDB0064910A /* OkMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkMessage.swift; sourceTree = "<group>"; };
-		383B91DE1D143C370064910A /* HeartbeatHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartbeatHandler.swift; sourceTree = "<group>"; };
-		383B91E01D143C590064910A /* HandshakeOkHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandshakeOkHandler.swift; sourceTree = "<group>"; };
-		383B91E21D143DA30064910A /* PacketReceiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacketReceiver.swift; sourceTree = "<group>"; };
-		383B91E41D143F900064910A /* MessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageHandler.swift; sourceTree = "<group>"; };
-		383B91E61D1441100064910A /* BaseMessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMessageHandler.swift; sourceTree = "<group>"; };
-		383B91E81D14E2B90064910A /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		383B91EA1D154BE60064910A /* RsaCipher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RsaCipher.swift; sourceTree = "<group>"; };
-		383B91EC1D154BFC0064910A /* AesCipher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AesCipher.swift; sourceTree = "<group>"; };
-		383B91EE1D1561900064910A /* ClientListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientListener.swift; sourceTree = "<group>"; };
-		383B91F01D1562820064910A /* DefaultClientListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultClientListener.swift; sourceTree = "<group>"; };
-		383B91F31D1567120064910A /* CipherBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CipherBox.swift; sourceTree = "<group>"; };
-		383B91F51D1599DD0064910A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		383B91F71D168E140064910A /* ConnectThread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectThread.swift; sourceTree = "<group>"; };
-		383B91F91D17BDA10064910A /* OkMessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkMessageHandler.swift; sourceTree = "<group>"; };
-		383B91FB1D17BE170064910A /* ErrorMessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessageHandler.swift; sourceTree = "<group>"; };
-		383B91FD1D17C1BB0064910A /* KickUserMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KickUserMessage.swift; sourceTree = "<group>"; };
-		383B91FF1D17C28C0064910A /* KickUserHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KickUserHandler.swift; sourceTree = "<group>"; };
-		383B92011D17C3890064910A /* BindUserMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindUserMessage.swift; sourceTree = "<group>"; };
-		383B92031D17C48E0064910A /* PushMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushMessage.swift; sourceTree = "<group>"; };
-		383B92051D17C50B0064910A /* PushMessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushMessageHandler.swift; sourceTree = "<group>"; };
-		383B92081D1804280064910A /* FileSessionStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSessionStorage.swift; sourceTree = "<group>"; };
-		383B920A1D1808D90064910A /* PersistentSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistentSession.swift; sourceTree = "<group>"; };
-		383B920C1D18196C0064910A /* FastConnectMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastConnectMessage.swift; sourceTree = "<group>"; };
-		383B920E1D181A470064910A /* FastConnectOkMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastConnectOkMessage.swift; sourceTree = "<group>"; };
-		383B92101D181ADC0064910A /* FastConnectOkHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastConnectOkHandler.swift; sourceTree = "<group>"; };
-		383B92131D18CDEB0064910A /* HttpCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpCallback.swift; sourceTree = "<group>"; };
-		383B92151D18CE450064910A /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
-		383B92171D18E8920064910A /* HttpResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
-		383B92191D18E98C0064910A /* HttpRequestMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequestMessage.swift; sourceTree = "<group>"; };
-		383B921B1D18EBD80064910A /* MPUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPUtils.swift; sourceTree = "<group>"; };
-		383B921D1D18FE430064910A /* HttpResponseMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpResponseMessage.swift; sourceTree = "<group>"; };
-		383B921F1D18FFF80064910A /* HttpProxyHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpProxyHandler.swift; sourceTree = "<group>"; };
-		383B92211D1945A90064910A /* HttpRequestQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequestQueue.swift; sourceTree = "<group>"; };
-		383B92231D198E000064910A /* ResonseFuture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResonseFuture.swift; sourceTree = "<group>"; };
+		387E85FE1D6D495900E7DE5A /* Client.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		387E85FF1D6D495900E7DE5A /* ClientListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientListener.swift; sourceTree = "<group>"; };
+		387E86011D6D495900E7DE5A /* Cipher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cipher.swift; sourceTree = "<group>"; };
+		387E86021D6D495900E7DE5A /* Connection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connection.swift; sourceTree = "<group>"; };
+		387E86031D6D495900E7DE5A /* SessionContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionContext.swift; sourceTree = "<group>"; };
+		387E86041D6D495900E7DE5A /* SessionStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SessionStorage.swift; sourceTree = "<group>"; };
+		387E86061D6D495900E7DE5A /* HttpCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpCallback.swift; sourceTree = "<group>"; };
+		387E86071D6D495900E7DE5A /* HttpRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequest.swift; sourceTree = "<group>"; };
+		387E86081D6D495900E7DE5A /* HttpResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpResponse.swift; sourceTree = "<group>"; };
+		387E86091D6D495900E7DE5A /* ResonseFuture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResonseFuture.swift; sourceTree = "<group>"; };
+		387E860A1D6D495900E7DE5A /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		387E860B1D6D495900E7DE5A /* MessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageHandler.swift; sourceTree = "<group>"; };
+		387E860C1D6D495900E7DE5A /* PacketReceiver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacketReceiver.swift; sourceTree = "<group>"; };
+		387E860E1D6D495900E7DE5A /* Command.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Command.swift; sourceTree = "<group>"; };
+		387E860F1D6D495900E7DE5A /* MpushProtocal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MpushProtocal.swift; sourceTree = "<group>"; };
+		387E86101D6D495900E7DE5A /* Packet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Packet.swift; sourceTree = "<group>"; };
+		387E86121D6D495900E7DE5A /* AllotClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AllotClient.swift; sourceTree = "<group>"; };
+		387E86131D6D495900E7DE5A /* ClientConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientConfig.swift; sourceTree = "<group>"; };
+		387E86141D6D495900E7DE5A /* ConnectThread.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectThread.swift; sourceTree = "<group>"; };
+		387E86151D6D495900E7DE5A /* DefaultClientListener.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultClientListener.swift; sourceTree = "<group>"; };
+		387E86161D6D495900E7DE5A /* HttpRequestQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequestQueue.swift; sourceTree = "<group>"; };
+		387E86171D6D495900E7DE5A /* MessageDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageDispatcher.swift; sourceTree = "<group>"; };
+		387E86181D6D495900E7DE5A /* MpushClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MpushClient.swift; sourceTree = "<group>"; };
+		387E86191D6D495900E7DE5A /* TcpConnection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TcpConnection.swift; sourceTree = "<group>"; };
+		387E861B1D6D495900E7DE5A /* PacketDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacketDecoder.swift; sourceTree = "<group>"; };
+		387E861C1D6D495900E7DE5A /* PacketEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacketEncoder.swift; sourceTree = "<group>"; };
+		387E861D1D6D495900E7DE5A /* PacketReader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacketReader.swift; sourceTree = "<group>"; };
+		387E861E1D6D495900E7DE5A /* PacketWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PacketWriter.swift; sourceTree = "<group>"; };
+		387E86201D6D495900E7DE5A /* BaseMessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMessageHandler.swift; sourceTree = "<group>"; };
+		387E86211D6D495900E7DE5A /* ErrorMessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessageHandler.swift; sourceTree = "<group>"; };
+		387E86221D6D495900E7DE5A /* FastConnectOkHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastConnectOkHandler.swift; sourceTree = "<group>"; };
+		387E86231D6D495900E7DE5A /* HandshakeOkHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandshakeOkHandler.swift; sourceTree = "<group>"; };
+		387E86241D6D495900E7DE5A /* HeartbeatHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeartbeatHandler.swift; sourceTree = "<group>"; };
+		387E86251D6D495900E7DE5A /* HttpProxyHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpProxyHandler.swift; sourceTree = "<group>"; };
+		387E86261D6D495900E7DE5A /* KickUserHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KickUserHandler.swift; sourceTree = "<group>"; };
+		387E86271D6D495900E7DE5A /* OkMessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkMessageHandler.swift; sourceTree = "<group>"; };
+		387E86281D6D495900E7DE5A /* PushMessageHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushMessageHandler.swift; sourceTree = "<group>"; };
+		387E862A1D6D495900E7DE5A /* BaseMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseMessage.swift; sourceTree = "<group>"; };
+		387E862B1D6D495900E7DE5A /* BindUserMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindUserMessage.swift; sourceTree = "<group>"; };
+		387E862C1D6D495900E7DE5A /* ByteBufMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ByteBufMessage.swift; sourceTree = "<group>"; };
+		387E862D1D6D495900E7DE5A /* ErrorMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorMessage.swift; sourceTree = "<group>"; };
+		387E862E1D6D495900E7DE5A /* FastConnectMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastConnectMessage.swift; sourceTree = "<group>"; };
+		387E862F1D6D495900E7DE5A /* FastConnectOkMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FastConnectOkMessage.swift; sourceTree = "<group>"; };
+		387E86301D6D495900E7DE5A /* HandshakeMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandshakeMessage.swift; sourceTree = "<group>"; };
+		387E86311D6D495900E7DE5A /* HandshakeOkMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HandshakeOkMessage.swift; sourceTree = "<group>"; };
+		387E86321D6D495900E7DE5A /* HttpRequestMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRequestMessage.swift; sourceTree = "<group>"; };
+		387E86331D6D495900E7DE5A /* HttpResponseMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpResponseMessage.swift; sourceTree = "<group>"; };
+		387E86341D6D495900E7DE5A /* KickUserMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KickUserMessage.swift; sourceTree = "<group>"; };
+		387E86351D6D495900E7DE5A /* OkMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OkMessage.swift; sourceTree = "<group>"; };
+		387E86361D6D495900E7DE5A /* PushMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushMessage.swift; sourceTree = "<group>"; };
+		387E86381D6D495900E7DE5A /* AesCipher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AesCipher.swift; sourceTree = "<group>"; };
+		387E86391D6D495900E7DE5A /* CipherBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CipherBox.swift; sourceTree = "<group>"; };
+		387E863A1D6D495900E7DE5A /* RsaCipher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RsaCipher.swift; sourceTree = "<group>"; };
+		387E863C1D6D495900E7DE5A /* FileSessionStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSessionStorage.swift; sourceTree = "<group>"; };
+		387E863D1D6D495900E7DE5A /* PersistentSession.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistentSession.swift; sourceTree = "<group>"; };
+		387E863F1D6D495900E7DE5A /* AESUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AESUtils.swift; sourceTree = "<group>"; };
+		387E86411D6D495900E7DE5A /* ByteBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ByteBuffer.swift; sourceTree = "<group>"; };
+		387E86421D6D495900E7DE5A /* RFIReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFIReader.h; sourceTree = "<group>"; };
+		387E86431D6D495900E7DE5A /* RFIReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFIReader.m; sourceTree = "<group>"; };
+		387E86441D6D495900E7DE5A /* RFIWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFIWriter.h; sourceTree = "<group>"; };
+		387E86451D6D495900E7DE5A /* RFIWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFIWriter.m; sourceTree = "<group>"; };
+		387E86461D6D495900E7DE5A /* UnsafeBuffer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnsafeBuffer.swift; sourceTree = "<group>"; };
+		387E86471D6D495900E7DE5A /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		387E86481D6D495900E7DE5A /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		387E86491D6D495900E7DE5A /* MPUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MPUtils.swift; sourceTree = "<group>"; };
+		387E864A1D6D495900E7DE5A /* NSData+Z.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSData+Z.swift"; sourceTree = "<group>"; };
+		387E864B1D6D495900E7DE5A /* RASUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RASUtils.swift; sourceTree = "<group>"; };
+		387E864D1D6D495900E7DE5A /* tcpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tcpsocket.c; sourceTree = "<group>"; };
+		387E864E1D6D495900E7DE5A /* tcpsocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tcpsocket.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,16 +216,16 @@
 		383B91591D12100E0064910A /* mpush_client */ = {
 			isa = PBXGroup;
 			children = (
+				387E85FD1D6D495900E7DE5A /* api */,
+				387E86111D6D495900E7DE5A /* client */,
+				387E861A1D6D495900E7DE5A /* codec */,
+				387E861F1D6D495900E7DE5A /* handler */,
+				387E86291D6D495900E7DE5A /* message */,
+				387E86371D6D495900E7DE5A /* security */,
+				387E863B1D6D495900E7DE5A /* session */,
+				387E863E1D6D495900E7DE5A /* util */,
 				383B915A1D12100E0064910A /* mpush_client.h */,
 				383B91C01D1268650064910A /* Info.plist */,
-				383B91BE1D1267ED0064910A /* api */,
-				383B91B81D1267090064910A /* client */,
-				383B91BD1D1267BE0064910A /* codec */,
-				383B91DD1D143BFA0064910A /* handler */,
-				383B91BC1D12676A0064910A /* message */,
-				383B91F21D1566E30064910A /* security */,
-				383B92071D18039E0064910A /* session */,
-				383B91B91D1267240064910A /* util */,
 			);
 			path = mpush_client;
 			sourceTree = "<group>";
@@ -239,169 +239,169 @@
 			path = mpush_clientTests;
 			sourceTree = "<group>";
 		};
-		383B91B81D1267090064910A /* client */ = {
+		387E85FD1D6D495900E7DE5A /* api */ = {
 			isa = PBXGroup;
 			children = (
-				383B91B31D12642E0064910A /* ClientConfig.swift */,
-				383B91B41D12642E0064910A /* MpushClient.swift */,
-				383B917A1D1210F60064910A /* MessageDispatcher.swift */,
-				383B91851D1210F60064910A /* TcpConnection.swift */,
-				383B91C41D126AB30064910A /* AllotClient.swift */,
-				383B91F01D1562820064910A /* DefaultClientListener.swift */,
-				383B91F71D168E140064910A /* ConnectThread.swift */,
-				383B92211D1945A90064910A /* HttpRequestQueue.swift */,
+				387E85FE1D6D495900E7DE5A /* Client.swift */,
+				387E85FF1D6D495900E7DE5A /* ClientListener.swift */,
+				387E86001D6D495900E7DE5A /* connection */,
+				387E86051D6D495900E7DE5A /* http */,
+				387E860A1D6D495900E7DE5A /* Message.swift */,
+				387E860B1D6D495900E7DE5A /* MessageHandler.swift */,
+				387E860C1D6D495900E7DE5A /* PacketReceiver.swift */,
+				387E860D1D6D495900E7DE5A /* protocol */,
 			);
-			name = client;
+			path = api;
 			sourceTree = "<group>";
 		};
-		383B91B91D1267240064910A /* util */ = {
+		387E86001D6D495900E7DE5A /* connection */ = {
 			isa = PBXGroup;
 			children = (
-				383B91741D1210F60064910A /* AESUtils.swift */,
-				383B91F51D1599DD0064910A /* Extensions.swift */,
-				383B91E81D14E2B90064910A /* Logger.swift */,
-				383B91B01D125E320064910A /* NSData+Z.swift */,
-				383B91801D1210F60064910A /* RASUtils.swift */,
-				383B91BA1D1267310064910A /* buffer */,
-				383B91BB1D1267420064910A /* tcp */,
-				383B921B1D18EBD80064910A /* MPUtils.swift */,
+				387E86011D6D495900E7DE5A /* Cipher.swift */,
+				387E86021D6D495900E7DE5A /* Connection.swift */,
+				387E86031D6D495900E7DE5A /* SessionContext.swift */,
+				387E86041D6D495900E7DE5A /* SessionStorage.swift */,
 			);
-			name = util;
+			path = connection;
 			sourceTree = "<group>";
 		};
-		383B91BA1D1267310064910A /* buffer */ = {
+		387E86051D6D495900E7DE5A /* http */ = {
 			isa = PBXGroup;
 			children = (
-				383B91881D1210F60064910A /* UnsafeBuffer.swift */,
-				383B91761D1210F60064910A /* ByteBuffer.swift */,
-				383B91811D1210F60064910A /* RFIReader.h */,
-				383B91821D1210F60064910A /* RFIReader.m */,
-				383B91831D1210F60064910A /* RFIWriter.h */,
-				383B91841D1210F60064910A /* RFIWriter.m */,
+				387E86061D6D495900E7DE5A /* HttpCallback.swift */,
+				387E86071D6D495900E7DE5A /* HttpRequest.swift */,
+				387E86081D6D495900E7DE5A /* HttpResponse.swift */,
+				387E86091D6D495900E7DE5A /* ResonseFuture.swift */,
 			);
-			name = buffer;
+			path = http;
 			sourceTree = "<group>";
 		};
-		383B91BB1D1267420064910A /* tcp */ = {
+		387E860D1D6D495900E7DE5A /* protocol */ = {
 			isa = PBXGroup;
 			children = (
-				383B91861D1210F60064910A /* tcpsocket.c */,
-				383B91871D1210F60064910A /* tcpsocket.h */,
+				387E860E1D6D495900E7DE5A /* Command.swift */,
+				387E860F1D6D495900E7DE5A /* MpushProtocal.swift */,
+				387E86101D6D495900E7DE5A /* Packet.swift */,
 			);
-			name = tcp;
+			path = protocol;
 			sourceTree = "<group>";
 		};
-		383B91BC1D12676A0064910A /* message */ = {
+		387E86111D6D495900E7DE5A /* client */ = {
 			isa = PBXGroup;
 			children = (
-				383B91751D1210F60064910A /* BaseMessage.swift */,
-				383B91781D1210F60064910A /* HandshakeMessage.swift */,
-				383B91791D1210F60064910A /* HandshakeOkMessage.swift */,
-				383B91D71D1406960064910A /* ByteBufMessage.swift */,
-				383B91D91D143BC80064910A /* ErrorMessage.swift */,
-				383B91DB1D143BDB0064910A /* OkMessage.swift */,
-				383B91FD1D17C1BB0064910A /* KickUserMessage.swift */,
-				383B92011D17C3890064910A /* BindUserMessage.swift */,
-				383B92031D17C48E0064910A /* PushMessage.swift */,
-				383B920C1D18196C0064910A /* FastConnectMessage.swift */,
-				383B920E1D181A470064910A /* FastConnectOkMessage.swift */,
-				383B92191D18E98C0064910A /* HttpRequestMessage.swift */,
-				383B921D1D18FE430064910A /* HttpResponseMessage.swift */,
+				387E86121D6D495900E7DE5A /* AllotClient.swift */,
+				387E86131D6D495900E7DE5A /* ClientConfig.swift */,
+				387E86141D6D495900E7DE5A /* ConnectThread.swift */,
+				387E86151D6D495900E7DE5A /* DefaultClientListener.swift */,
+				387E86161D6D495900E7DE5A /* HttpRequestQueue.swift */,
+				387E86171D6D495900E7DE5A /* MessageDispatcher.swift */,
+				387E86181D6D495900E7DE5A /* MpushClient.swift */,
+				387E86191D6D495900E7DE5A /* TcpConnection.swift */,
 			);
-			name = message;
+			path = client;
 			sourceTree = "<group>";
 		};
-		383B91BD1D1267BE0064910A /* codec */ = {
+		387E861A1D6D495900E7DE5A /* codec */ = {
 			isa = PBXGroup;
 			children = (
-				383B917E1D1210F60064910A /* PacketReader.swift */,
-				383B917F1D1210F60064910A /* PacketWriter.swift */,
-				383B91C61D127B090064910A /* PacketEncoder.swift */,
-				383B91C81D127B1D0064910A /* PacketDecoder.swift */,
+				387E861B1D6D495900E7DE5A /* PacketDecoder.swift */,
+				387E861C1D6D495900E7DE5A /* PacketEncoder.swift */,
+				387E861D1D6D495900E7DE5A /* PacketReader.swift */,
+				387E861E1D6D495900E7DE5A /* PacketWriter.swift */,
 			);
-			name = codec;
+			path = codec;
 			sourceTree = "<group>";
 		};
-		383B91BE1D1267ED0064910A /* api */ = {
+		387E861F1D6D495900E7DE5A /* handler */ = {
 			isa = PBXGroup;
 			children = (
-				383B91771D1210F60064910A /* Client.swift */,
-				383B91EE1D1561900064910A /* ClientListener.swift */,
-				383B91D51D13D4880064910A /* Message.swift */,
-				383B91E41D143F900064910A /* MessageHandler.swift */,
-				383B91E21D143DA30064910A /* PacketReceiver.swift */,
-				383B91CC1D12FD770064910A /* connection */,
-				383B92121D18CDD10064910A /* http */,
-				383B91BF1D1268080064910A /* protocol */,
+				387E86201D6D495900E7DE5A /* BaseMessageHandler.swift */,
+				387E86211D6D495900E7DE5A /* ErrorMessageHandler.swift */,
+				387E86221D6D495900E7DE5A /* FastConnectOkHandler.swift */,
+				387E86231D6D495900E7DE5A /* HandshakeOkHandler.swift */,
+				387E86241D6D495900E7DE5A /* HeartbeatHandler.swift */,
+				387E86251D6D495900E7DE5A /* HttpProxyHandler.swift */,
+				387E86261D6D495900E7DE5A /* KickUserHandler.swift */,
+				387E86271D6D495900E7DE5A /* OkMessageHandler.swift */,
+				387E86281D6D495900E7DE5A /* PushMessageHandler.swift */,
 			);
-			name = api;
+			path = handler;
 			sourceTree = "<group>";
 		};
-		383B91BF1D1268080064910A /* protocol */ = {
+		387E86291D6D495900E7DE5A /* message */ = {
 			isa = PBXGroup;
 			children = (
-				383B917D1D1210F60064910A /* Packet.swift */,
-				383B91C21D12697A0064910A /* MpushProtocal.swift */,
-				383B91CA1D127C130064910A /* Command.swift */,
+				387E862A1D6D495900E7DE5A /* BaseMessage.swift */,
+				387E862B1D6D495900E7DE5A /* BindUserMessage.swift */,
+				387E862C1D6D495900E7DE5A /* ByteBufMessage.swift */,
+				387E862D1D6D495900E7DE5A /* ErrorMessage.swift */,
+				387E862E1D6D495900E7DE5A /* FastConnectMessage.swift */,
+				387E862F1D6D495900E7DE5A /* FastConnectOkMessage.swift */,
+				387E86301D6D495900E7DE5A /* HandshakeMessage.swift */,
+				387E86311D6D495900E7DE5A /* HandshakeOkMessage.swift */,
+				387E86321D6D495900E7DE5A /* HttpRequestMessage.swift */,
+				387E86331D6D495900E7DE5A /* HttpResponseMessage.swift */,
+				387E86341D6D495900E7DE5A /* KickUserMessage.swift */,
+				387E86351D6D495900E7DE5A /* OkMessage.swift */,
+				387E86361D6D495900E7DE5A /* PushMessage.swift */,
 			);
-			name = protocol;
+			path = message;
 			sourceTree = "<group>";
 		};
-		383B91CC1D12FD770064910A /* connection */ = {
+		387E86371D6D495900E7DE5A /* security */ = {
 			isa = PBXGroup;
 			children = (
-				383B91CD1D12FD8E0064910A /* Connection.swift */,
-				383B91CF1D12FF3B0064910A /* Cipher.swift */,
-				383B91D11D1300450064910A /* SessionContext.swift */,
-				383B91D31D13007E0064910A /* SessionStorage.swift */,
+				387E86381D6D495900E7DE5A /* AesCipher.swift */,
+				387E86391D6D495900E7DE5A /* CipherBox.swift */,
+				387E863A1D6D495900E7DE5A /* RsaCipher.swift */,
 			);
-			name = connection;
+			path = security;
 			sourceTree = "<group>";
 		};
-		383B91DD1D143BFA0064910A /* handler */ = {
+		387E863B1D6D495900E7DE5A /* session */ = {
 			isa = PBXGroup;
 			children = (
-				383B91DE1D143C370064910A /* HeartbeatHandler.swift */,
-				383B91E01D143C590064910A /* HandshakeOkHandler.swift */,
-				383B91E61D1441100064910A /* BaseMessageHandler.swift */,
-				383B91F91D17BDA10064910A /* OkMessageHandler.swift */,
-				383B91FB1D17BE170064910A /* ErrorMessageHandler.swift */,
-				383B91FF1D17C28C0064910A /* KickUserHandler.swift */,
-				383B92051D17C50B0064910A /* PushMessageHandler.swift */,
-				383B92101D181ADC0064910A /* FastConnectOkHandler.swift */,
-				383B921F1D18FFF80064910A /* HttpProxyHandler.swift */,
+				387E863C1D6D495900E7DE5A /* FileSessionStorage.swift */,
+				387E863D1D6D495900E7DE5A /* PersistentSession.swift */,
 			);
-			name = handler;
+			path = session;
 			sourceTree = "<group>";
 		};
-		383B91F21D1566E30064910A /* security */ = {
+		387E863E1D6D495900E7DE5A /* util */ = {
 			isa = PBXGroup;
 			children = (
-				383B91EA1D154BE60064910A /* RsaCipher.swift */,
-				383B91EC1D154BFC0064910A /* AesCipher.swift */,
-				383B91F31D1567120064910A /* CipherBox.swift */,
+				387E863F1D6D495900E7DE5A /* AESUtils.swift */,
+				387E86401D6D495900E7DE5A /* buffer */,
+				387E86471D6D495900E7DE5A /* Extensions.swift */,
+				387E86481D6D495900E7DE5A /* Logger.swift */,
+				387E86491D6D495900E7DE5A /* MPUtils.swift */,
+				387E864A1D6D495900E7DE5A /* NSData+Z.swift */,
+				387E864B1D6D495900E7DE5A /* RASUtils.swift */,
+				387E864C1D6D495900E7DE5A /* tcp */,
 			);
-			name = security;
+			path = util;
 			sourceTree = "<group>";
 		};
-		383B92071D18039E0064910A /* session */ = {
+		387E86401D6D495900E7DE5A /* buffer */ = {
 			isa = PBXGroup;
 			children = (
-				383B92081D1804280064910A /* FileSessionStorage.swift */,
-				383B920A1D1808D90064910A /* PersistentSession.swift */,
+				387E86411D6D495900E7DE5A /* ByteBuffer.swift */,
+				387E86421D6D495900E7DE5A /* RFIReader.h */,
+				387E86431D6D495900E7DE5A /* RFIReader.m */,
+				387E86441D6D495900E7DE5A /* RFIWriter.h */,
+				387E86451D6D495900E7DE5A /* RFIWriter.m */,
+				387E86461D6D495900E7DE5A /* UnsafeBuffer.swift */,
 			);
-			name = session;
+			path = buffer;
 			sourceTree = "<group>";
 		};
-		383B92121D18CDD10064910A /* http */ = {
+		387E864C1D6D495900E7DE5A /* tcp */ = {
 			isa = PBXGroup;
 			children = (
-				383B92131D18CDEB0064910A /* HttpCallback.swift */,
-				383B92151D18CE450064910A /* HttpRequest.swift */,
-				383B92171D18E8920064910A /* HttpResponse.swift */,
-				383B92231D198E000064910A /* ResonseFuture.swift */,
+				387E864D1D6D495900E7DE5A /* tcpsocket.c */,
+				387E864E1D6D495900E7DE5A /* tcpsocket.h */,
 			);
-			name = http;
+			path = tcp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -412,9 +412,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				383B915B1D12100E0064910A /* mpush_client.h in Headers */,
-				383B91961D1210F60064910A /* RFIReader.h in Headers */,
-				383B91981D1210F60064910A /* RFIWriter.h in Headers */,
-				383B919C1D1210F60064910A /* tcpsocket.h in Headers */,
+				387E86931D6D495900E7DE5A /* tcpsocket.h in Headers */,
+				387E86881D6D495900E7DE5A /* RFIReader.h in Headers */,
+				387E868A1D6D495900E7DE5A /* RFIWriter.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,72 +516,72 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				383B92181D18E8920064910A /* HttpResponse.swift in Sources */,
-				383B91B61D12642E0064910A /* MpushClient.swift in Sources */,
-				383B91EB1D154BE60064910A /* RsaCipher.swift in Sources */,
-				383B92061D17C50B0064910A /* PushMessageHandler.swift in Sources */,
-				383B91F11D1562820064910A /* DefaultClientListener.swift in Sources */,
-				383B91D21D1300450064910A /* SessionContext.swift in Sources */,
-				383B91931D1210F60064910A /* PacketReader.swift in Sources */,
-				383B919D1D1210F60064910A /* UnsafeBuffer.swift in Sources */,
-				383B91DA1D143BC80064910A /* ErrorMessage.swift in Sources */,
-				383B91ED1D154BFC0064910A /* AesCipher.swift in Sources */,
-				383B91D61D13D4880064910A /* Message.swift in Sources */,
-				383B918A1D1210F60064910A /* BaseMessage.swift in Sources */,
-				383B918D1D1210F60064910A /* HandshakeMessage.swift in Sources */,
-				383B91C91D127B1D0064910A /* PacketDecoder.swift in Sources */,
-				383B92111D181ADC0064910A /* FastConnectOkHandler.swift in Sources */,
-				383B91DC1D143BDB0064910A /* OkMessage.swift in Sources */,
-				383B92021D17C3890064910A /* BindUserMessage.swift in Sources */,
-				383B91E51D143F900064910A /* MessageHandler.swift in Sources */,
-				383B91F41D1567120064910A /* CipherBox.swift in Sources */,
-				383B91D01D12FF3B0064910A /* Cipher.swift in Sources */,
-				383B92091D1804280064910A /* FileSessionStorage.swift in Sources */,
-				383B91D81D1406960064910A /* ByteBufMessage.swift in Sources */,
-				383B920D1D18196C0064910A /* FastConnectMessage.swift in Sources */,
-				383B918B1D1210F60064910A /* ByteBuffer.swift in Sources */,
-				383B91EF1D1561900064910A /* ClientListener.swift in Sources */,
-				383B919A1D1210F60064910A /* TcpConnection.swift in Sources */,
-				383B91F61D1599DD0064910A /* Extensions.swift in Sources */,
-				383B91C31D12697A0064910A /* MpushProtocal.swift in Sources */,
-				383B91991D1210F60064910A /* RFIWriter.m in Sources */,
-				383B918C1D1210F60064910A /* Client.swift in Sources */,
-				383B91B51D12642E0064910A /* ClientConfig.swift in Sources */,
-				383B91E91D14E2B90064910A /* Logger.swift in Sources */,
-				383B921C1D18EBD80064910A /* MPUtils.swift in Sources */,
-				383B91FC1D17BE170064910A /* ErrorMessageHandler.swift in Sources */,
-				383B91CE1D12FD8E0064910A /* Connection.swift in Sources */,
-				383B91941D1210F60064910A /* PacketWriter.swift in Sources */,
-				383B92141D18CDEB0064910A /* HttpCallback.swift in Sources */,
-				383B91C51D126AB30064910A /* AllotClient.swift in Sources */,
-				383B919B1D1210F60064910A /* tcpsocket.c in Sources */,
-				383B91C71D127B090064910A /* PacketEncoder.swift in Sources */,
-				383B918E1D1210F60064910A /* HandshakeOkMessage.swift in Sources */,
-				383B921E1D18FE430064910A /* HttpResponseMessage.swift in Sources */,
-				383B91E31D143DA30064910A /* PacketReceiver.swift in Sources */,
-				383B91E11D143C590064910A /* HandshakeOkHandler.swift in Sources */,
-				383B92241D198E000064910A /* ResonseFuture.swift in Sources */,
-				383B92041D17C48E0064910A /* PushMessage.swift in Sources */,
-				383B91E71D1441100064910A /* BaseMessageHandler.swift in Sources */,
-				383B91D41D13007E0064910A /* SessionStorage.swift in Sources */,
-				383B91F81D168E140064910A /* ConnectThread.swift in Sources */,
-				383B91FE1D17C1BB0064910A /* KickUserMessage.swift in Sources */,
-				383B92201D18FFF80064910A /* HttpProxyHandler.swift in Sources */,
-				383B920F1D181A470064910A /* FastConnectOkMessage.swift in Sources */,
-				383B91DF1D143C370064910A /* HeartbeatHandler.swift in Sources */,
-				383B921A1D18E98C0064910A /* HttpRequestMessage.swift in Sources */,
-				383B918F1D1210F60064910A /* MessageDispatcher.swift in Sources */,
-				383B91921D1210F60064910A /* Packet.swift in Sources */,
-				383B91FA1D17BDA10064910A /* OkMessageHandler.swift in Sources */,
-				383B92001D17C28C0064910A /* KickUserHandler.swift in Sources */,
-				383B91891D1210F60064910A /* AESUtils.swift in Sources */,
-				383B91951D1210F60064910A /* RASUtils.swift in Sources */,
-				383B91971D1210F60064910A /* RFIReader.m in Sources */,
-				383B91B11D125E320064910A /* NSData+Z.swift in Sources */,
-				383B92161D18CE450064910A /* HttpRequest.swift in Sources */,
-				383B91CB1D127C130064910A /* Command.swift in Sources */,
-				383B92221D1945A90064910A /* HttpRequestQueue.swift in Sources */,
-				383B920B1D1808D90064910A /* PersistentSession.swift in Sources */,
+				387E86551D6D495900E7DE5A /* HttpCallback.swift in Sources */,
+				387E868C1D6D495900E7DE5A /* UnsafeBuffer.swift in Sources */,
+				387E867D1D6D495900E7DE5A /* HttpResponseMessage.swift in Sources */,
+				387E86671D6D495900E7DE5A /* PacketDecoder.swift in Sources */,
+				387E86801D6D495900E7DE5A /* PushMessage.swift in Sources */,
+				387E86741D6D495900E7DE5A /* BaseMessage.swift in Sources */,
+				387E86691D6D495900E7DE5A /* PacketReader.swift in Sources */,
+				387E866B1D6D495900E7DE5A /* BaseMessageHandler.swift in Sources */,
+				387E86921D6D495900E7DE5A /* tcpsocket.c in Sources */,
+				387E86511D6D495900E7DE5A /* Cipher.swift in Sources */,
+				387E86901D6D495900E7DE5A /* NSData+Z.swift in Sources */,
+				387E86601D6D495900E7DE5A /* ClientConfig.swift in Sources */,
+				387E867B1D6D495900E7DE5A /* HandshakeOkMessage.swift in Sources */,
+				387E86531D6D495900E7DE5A /* SessionContext.swift in Sources */,
+				387E86861D6D495900E7DE5A /* AESUtils.swift in Sources */,
+				387E86611D6D495900E7DE5A /* ConnectThread.swift in Sources */,
+				387E86711D6D495900E7DE5A /* KickUserHandler.swift in Sources */,
+				387E86781D6D495900E7DE5A /* FastConnectMessage.swift in Sources */,
+				387E86831D6D495900E7DE5A /* RsaCipher.swift in Sources */,
+				387E868F1D6D495900E7DE5A /* MPUtils.swift in Sources */,
+				387E86821D6D495900E7DE5A /* CipherBox.swift in Sources */,
+				387E86501D6D495900E7DE5A /* ClientListener.swift in Sources */,
+				387E86891D6D495900E7DE5A /* RFIReader.m in Sources */,
+				387E864F1D6D495900E7DE5A /* Client.swift in Sources */,
+				387E86561D6D495900E7DE5A /* HttpRequest.swift in Sources */,
+				387E86771D6D495900E7DE5A /* ErrorMessage.swift in Sources */,
+				387E866A1D6D495900E7DE5A /* PacketWriter.swift in Sources */,
+				387E868D1D6D495900E7DE5A /* Extensions.swift in Sources */,
+				387E86591D6D495900E7DE5A /* Message.swift in Sources */,
+				387E868B1D6D495900E7DE5A /* RFIWriter.m in Sources */,
+				387E866C1D6D495900E7DE5A /* ErrorMessageHandler.swift in Sources */,
+				387E86581D6D495900E7DE5A /* ResonseFuture.swift in Sources */,
+				387E86731D6D495900E7DE5A /* PushMessageHandler.swift in Sources */,
+				387E867F1D6D495900E7DE5A /* OkMessage.swift in Sources */,
+				387E868E1D6D495900E7DE5A /* Logger.swift in Sources */,
+				387E86651D6D495900E7DE5A /* MpushClient.swift in Sources */,
+				387E86631D6D495900E7DE5A /* HttpRequestQueue.swift in Sources */,
+				387E867C1D6D495900E7DE5A /* HttpRequestMessage.swift in Sources */,
+				387E86721D6D495900E7DE5A /* OkMessageHandler.swift in Sources */,
+				387E86851D6D495900E7DE5A /* PersistentSession.swift in Sources */,
+				387E86701D6D495900E7DE5A /* HttpProxyHandler.swift in Sources */,
+				387E86751D6D495900E7DE5A /* BindUserMessage.swift in Sources */,
+				387E86871D6D495900E7DE5A /* ByteBuffer.swift in Sources */,
+				387E86791D6D495900E7DE5A /* FastConnectOkMessage.swift in Sources */,
+				387E86571D6D495900E7DE5A /* HttpResponse.swift in Sources */,
+				387E866E1D6D495900E7DE5A /* HandshakeOkHandler.swift in Sources */,
+				387E86661D6D495900E7DE5A /* TcpConnection.swift in Sources */,
+				387E86841D6D495900E7DE5A /* FileSessionStorage.swift in Sources */,
+				387E86541D6D495900E7DE5A /* SessionStorage.swift in Sources */,
+				387E86621D6D495900E7DE5A /* DefaultClientListener.swift in Sources */,
+				387E86641D6D495900E7DE5A /* MessageDispatcher.swift in Sources */,
+				387E86761D6D495900E7DE5A /* ByteBufMessage.swift in Sources */,
+				387E865A1D6D495900E7DE5A /* MessageHandler.swift in Sources */,
+				387E865C1D6D495900E7DE5A /* Command.swift in Sources */,
+				387E867E1D6D495900E7DE5A /* KickUserMessage.swift in Sources */,
+				387E866F1D6D495900E7DE5A /* HeartbeatHandler.swift in Sources */,
+				387E866D1D6D495900E7DE5A /* FastConnectOkHandler.swift in Sources */,
+				387E86811D6D495900E7DE5A /* AesCipher.swift in Sources */,
+				387E865D1D6D495900E7DE5A /* MpushProtocal.swift in Sources */,
+				387E865F1D6D495900E7DE5A /* AllotClient.swift in Sources */,
+				387E86681D6D495900E7DE5A /* PacketEncoder.swift in Sources */,
+				387E86521D6D495900E7DE5A /* Connection.swift in Sources */,
+				387E867A1D6D495900E7DE5A /* HandshakeMessage.swift in Sources */,
+				387E865B1D6D495900E7DE5A /* PacketReceiver.swift in Sources */,
+				387E86911D6D495900E7DE5A /* RASUtils.swift in Sources */,
+				387E865E1D6D495900E7DE5A /* Packet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
