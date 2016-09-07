@@ -9,9 +9,13 @@
 import Foundation
 
 class Packet {
+    static let HEADER_LEN:Int = 13;
+    
     static let FLAG_CRYPTO:Int8 = 0x1;
     static let FLAG_COMPRESS:Int8 = 0x2;
-    static let HEADER_LEN:Int = 13;
+    static let FLAG_BIZ_ACK:Int8 = 0x4;
+    static let FLAG_AUTO_ACK:Int8 = 0x8;
+    
     static let HB_PACKET_BYTE:Int8 = -33;
     static let HB_PACKET_BYTES:[Int8] = [HB_PACKET_BYTE];
     static let HB_PACKET = Packet(cmd: Command.HEARTBEAT);

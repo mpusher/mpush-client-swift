@@ -39,9 +39,9 @@ final class DefaultClientListener: ClientListener {
         }
     }
     
-    func onReceivePush(client: Client, content: NSData) {
+    func onReceivePush(client: Client, content: NSData, messageId: Int32) {
         if let listener = self.listener {
-            dispatch_async(dispatch_queue, {listener.onReceivePush(client, content: content)})
+            dispatch_async(dispatch_queue, {listener.onReceivePush(client, content: content, messageId: messageId)})
         }
     }
     

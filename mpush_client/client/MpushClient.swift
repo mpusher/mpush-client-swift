@@ -135,6 +135,13 @@ final class MpushClient:Client {
         logger.w({"<<< do unbind user, userId=\(uid)"});
     }
     
+    func ack(messageId: Int32) {
+        if messageId > 0 {
+            AckMessage(sessionId: messageId, conn: connection).sendRaw();
+            ClientConfig.I.logger.w({"<<< send ack for push messageId=\(messageId)"});
+        }
+    }
+    
     func sendHttp(request: HttpRequest) -> ResponseFuture {
         if (connection.context.handshakeOk()) {
             let message = HttpRequestMessage(connection: connection);

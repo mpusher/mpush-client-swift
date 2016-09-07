@@ -24,11 +24,11 @@ class mpush_clientTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let config = ClientConfig.build();
-        config.serverHost = "111.1.57.148";
-        config.serverPort = 20882;
+        config.serverHost = "127.0.0.1";
+        config.serverPort = 3000;
         config.publicKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCghPCWCobG8nTD24juwSVataW7iViRxcTkey/B792VZEhuHjQvA3cAJgx2Lv8GnX8NIoShZtoCg3Cx6ecs+VEPD2fBcg2L4JK7xldGpOJ3ONEAyVsLOttXZtNXvyDZRijiErQALMTorcgi79M5uVX9/jMv2Ggb2XAeZhlLD28fHwIDAQAB";
         config.deviceId = "dfadfadfadfwerwer2323";
-        config.userId = "user_0";
+        config.userId = "user-0";
         config.maxHeartbeat = 10000;
         config.minHeartbeat = 10000;
         
@@ -48,7 +48,7 @@ class mpush_clientTests: XCTestCase {
         
         func onHandshakeOk(client: Client, heartbeat: Int){
             
-            let request = HttpRequest.get("http://baidu.com");
+           /* let request = HttpRequest.get("http://baidu.com");
             request.timeout = 10000;
             let future = client.sendHttp(request);
             let response = future.get();
@@ -57,10 +57,12 @@ class mpush_clientTests: XCTestCase {
                 ClientConfig.I.logger.w({">>> receive http response=\(content)"});
             }else {
                 ClientConfig.I.logger.w({">>> receive http response=\(response.statusCode), headers=\(response.reasonPhrase)"});
-            }
+            }*/
         }
         
-        func onReceivePush(client: Client, content: NSData){}
+        func onReceivePush(client: Client, content: NSData, messageId: Int32){
+            client.ack(messageId);
+        }
         
         func onKickUser(deviceId: String, userId: String){}
     }

@@ -20,5 +20,7 @@ protocol MpushProtocal {
     
     func unbindUser();
     
+    func ack(messageId: Int32);
+    
     func sendHttp(request: HttpRequest) -> ResponseFuture;
 }

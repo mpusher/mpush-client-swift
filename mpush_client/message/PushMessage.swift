@@ -15,6 +15,15 @@ final class PushMessage: BaseMessage, CustomDebugStringConvertible {
         content = body;
     }
     
+    
+    func autoAck() -> Bool {
+        return packet.hasFlag(Packet.FLAG_AUTO_ACK);
+    }
+    
+    func bizAck() -> Bool {
+        return packet.hasFlag(Packet.FLAG_BIZ_ACK);
+    }
+    
     var debugDescription: String {
         return "PushMessage={content:\(content.length)}"
     }

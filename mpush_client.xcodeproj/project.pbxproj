@@ -81,6 +81,7 @@
 		387E86911D6D495900E7DE5A /* RASUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 387E864B1D6D495900E7DE5A /* RASUtils.swift */; };
 		387E86921D6D495900E7DE5A /* tcpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = 387E864D1D6D495900E7DE5A /* tcpsocket.c */; };
 		387E86931D6D495900E7DE5A /* tcpsocket.h in Headers */ = {isa = PBXBuildFile; fileRef = 387E864E1D6D495900E7DE5A /* tcpsocket.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		38A9AA7D1D7FC4C8002412C2 /* AckMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38A9AA7C1D7FC4C8002412C2 /* AckMessage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +172,7 @@
 		387E864B1D6D495900E7DE5A /* RASUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RASUtils.swift; sourceTree = "<group>"; };
 		387E864D1D6D495900E7DE5A /* tcpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tcpsocket.c; sourceTree = "<group>"; };
 		387E864E1D6D495900E7DE5A /* tcpsocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tcpsocket.h; sourceTree = "<group>"; };
+		38A9AA7C1D7FC4C8002412C2 /* AckMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AckMessage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -344,6 +346,7 @@
 				387E86341D6D495900E7DE5A /* KickUserMessage.swift */,
 				387E86351D6D495900E7DE5A /* OkMessage.swift */,
 				387E86361D6D495900E7DE5A /* PushMessage.swift */,
+				38A9AA7C1D7FC4C8002412C2 /* AckMessage.swift */,
 			);
 			path = message;
 			sourceTree = "<group>";
@@ -537,6 +540,7 @@
 				387E86831D6D495900E7DE5A /* RsaCipher.swift in Sources */,
 				387E868F1D6D495900E7DE5A /* MPUtils.swift in Sources */,
 				387E86821D6D495900E7DE5A /* CipherBox.swift in Sources */,
+				38A9AA7D1D7FC4C8002412C2 /* AckMessage.swift in Sources */,
 				387E86501D6D495900E7DE5A /* ClientListener.swift in Sources */,
 				387E86891D6D495900E7DE5A /* RFIReader.m in Sources */,
 				387E864F1D6D495900E7DE5A /* Client.swift in Sources */,

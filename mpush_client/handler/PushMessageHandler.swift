@@ -17,6 +17,12 @@ final class PushMessageHandler: BaseMessageHandler<PushMessage> {
     override func handle(message: PushMessage) {
         ClientConfig.I.logger.w({">>> receive push message=\(message)"});
         let listener = ClientConfig.I.clientListener;
-        listener.onReceivePush(message.getConnection().client, content: message.content);
+        listener.onReceivePush(message.getConnection().client,
+                               content: message.content,
+                               messageId: message.bizAck() ? message.getSessionId() : 0);
+        if (message.autoAck()) {
+            AckMessage(sessionId: message.getSessionId(), conn: message.getConnection()).sendRaw();
+            ClientConfig.I.logger.w({"<<< send ack for push messageId=\(message.getSessionId())"});
+        }
     }
 }
