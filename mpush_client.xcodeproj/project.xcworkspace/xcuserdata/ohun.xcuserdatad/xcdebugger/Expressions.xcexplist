@@ -54,5 +54,13 @@
       <ContextState
          contextName = "Packet.debugDescription.getter:mpush_clientTests.swift">
       </ContextState>
+      <ContextState
+         contextName = "AllotClient.((getServerAddressList in _4EF380097B47E367A8085E5A597C36D6)() -&gt; [String]).(closure #1):AllotClient.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "NSString(data: d, encoding: NSUTF8StringEncoding)">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>

@@ -24,8 +24,9 @@ class mpush_clientTests: XCTestCase {
         // This is an example of a functional test case.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
         let config = ClientConfig.build();
-        config.serverHost = "127.0.0.1";
-        config.serverPort = 3000;
+        //config.serverHost = "127.0.0.1";
+        //config.serverPort = 3000;
+        config.allotServer = "http://103.246.161.44:9999"
         config.publicKey = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCghPCWCobG8nTD24juwSVataW7iViRxcTkey/B792VZEhuHjQvA3cAJgx2Lv8GnX8NIoShZtoCg3Cx6ecs+VEPD2fBcg2L4JK7xldGpOJ3ONEAyVsLOttXZtNXvyDZRijiErQALMTorcgi79M5uVX9/jMv2Ggb2XAeZhlLD28fHwIDAQAB";
         config.deviceId = "dfadfadfadfwerwer2323";
         config.userId = "user-0";

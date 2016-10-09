@@ -29,17 +29,22 @@ final class AllotClient:NSObject, NSURLConnectionDataDelegate {
         
         if let url = NSURL(string: allot) {
             
+            let semaphore: dispatch_semaphore_t = dispatch_semaphore_create(0);
+            
             NSURLSession.sharedSession().dataTaskWithURL(url) { data, response, error in
                 if let e = error {
                     print(e)
+                    dispatch_semaphore_signal(semaphore);
                     return;
                 }
                 
                 if let d = data {
-                    self.serverList = String(d).componentsSeparatedByString(",")
+                    self.serverList = NSString(data: d, encoding: NSUTF8StringEncoding)!.componentsSeparatedByString(",");
+                    dispatch_semaphore_signal(semaphore);
                 }
            }.resume();
-            
+        
+            dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
         }
         return serverList;
     }
