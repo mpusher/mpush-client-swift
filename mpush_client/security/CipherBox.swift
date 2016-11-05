@@ -13,7 +13,7 @@ final class CipherBox {
     class func randomAESIV() -> NSData {
         let buffer = RFIWriter(capacity:16);
         for _ in 1...4 {
-            buffer.writeInt32(Int32(random()));
+            buffer.writeInt32(Int32(arc4random_uniform(UInt32(Int32.max))));
         }
         return buffer.getBuffer()
     }
@@ -21,7 +21,7 @@ final class CipherBox {
     class func randomAESKey() -> NSData {
         let buffer = RFIWriter(capacity:16);
         for _ in 1...4 {
-            buffer.writeInt32(Int32(random()));
+            buffer.writeInt32(Int32(arc4random_uniform(UInt32(Int32.max))));
         }
         return buffer.getBuffer()
     }

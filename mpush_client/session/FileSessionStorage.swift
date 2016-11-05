@@ -20,7 +20,7 @@ final class FileSessionStorage: SessionStorage {
             
             //writing
             do {
-                try sessionContext.writeToURL(path, atomically: false, encoding: NSUTF8StringEncoding)
+                try sessionContext.writeToURL(path!, atomically: false, encoding: NSUTF8StringEncoding)
             }
             catch {/* error handling here */}
         }    
@@ -31,9 +31,9 @@ final class FileSessionStorage: SessionStorage {
 
             let path = NSURL(fileURLWithPath: dir).URLByAppendingPathComponent(fileName);
             let fileManager = NSFileManager.defaultManager();
-            if(fileManager.fileExistsAtPath(path.path!)) {
+            if(fileManager.fileExistsAtPath(path!.path!)) {
                 do {
-                    let sessionContext = try String(contentsOfURL: path, encoding: NSUTF8StringEncoding);
+                    let sessionContext = try String(contentsOfURL: path!, encoding: NSUTF8StringEncoding);
                     return sessionContext;
                 }
                 catch {/* error handling here */}
@@ -48,7 +48,7 @@ final class FileSessionStorage: SessionStorage {
             let path = NSURL(fileURLWithPath: dir).URLByAppendingPathComponent(fileName);
             let fileManager = NSFileManager.defaultManager();
             do{
-                try fileManager.removeItemAtURL(path);
+                try fileManager.removeItemAtURL(path!);
             }catch {/* error handling here */}
         }
     }

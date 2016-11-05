@@ -79,8 +79,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "62"
             endingLineNumber = "62"
-            landmarkName = "onHandshakeOk(_:heartbeat:)"
-            landmarkType = "5">
+            landmarkName = "onHandshakeOk(client:heartbeat:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
