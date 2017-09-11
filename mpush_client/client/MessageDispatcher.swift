@@ -9,27 +9,27 @@
 import Foundation
 
 final class MessageDispatcher: PacketReceiver {
-    let dispatchQueue = dispatch_queue_create("message_dispatch_queue", DISPATCH_QUEUE_CONCURRENT);
+    let dispatchQueue = DispatchQueue(label: "message_dispatch_queue", attributes: DispatchQueue.Attributes.concurrent);
     var handlers = Dictionary<Int8, MessageHandler>();
     let logger = ClientConfig.I.logger;
     
     init() {
-        register(Command.HEARTBEAT, handler: HeartbeatHandler());
-        register(Command.FAST_CONNECT, handler: FastConnectOkHandler());
-        register(Command.HANDSHAKE, handler: HandshakeOkHandler());
-        register(Command.KICK, handler: KickUserHandler());
-        register(Command.OK, handler: OkMessageHandler());
-        register(Command.ERROR, handler: ErrorMessageHandler());
-        register(Command.PUSH, handler: PushMessageHandler());
+        register(Command.heartbeat, handler: HeartbeatHandler());
+        register(Command.fast_CONNECT, handler: FastConnectOkHandler());
+        register(Command.handshake, handler: HandshakeOkHandler());
+        register(Command.kick, handler: KickUserHandler());
+        register(Command.ok, handler: OkMessageHandler());
+        register(Command.error, handler: ErrorMessageHandler());
+        register(Command.push, handler: PushMessageHandler());
     }
     
-    func register(command: Command, handler: MessageHandler) {
+    func register(_ command: Command, handler: MessageHandler) {
         handlers[command.rawValue] = handler;
     }
     
-    func onReceive(packet: Packet, connection: Connection) {
+    func onReceive(_ packet: Packet, connection: Connection) {
         if let handler = handlers[packet.cmd] {
-            dispatch_async(dispatchQueue, {
+            dispatchQueue.async(execute: {
                 
                     do {
                         try handler.handle(packet, connection: connection);

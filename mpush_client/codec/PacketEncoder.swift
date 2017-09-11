@@ -10,9 +10,9 @@ import Foundation
 
 final class PacketEncoder {
     
-    class func encode(packet:Packet, out:UnsafeBuffer){
+    class func encode(_ packet:Packet, out:UnsafeBuffer){
         switch packet.cmd {
-        case Command.HEARTBEAT.rawValue:
+        case Command.heartbeat.rawValue:
             out.writeByte(Packet.HB_PACKET_BYTE)
         default:
             let length = packet.getBodyLength();

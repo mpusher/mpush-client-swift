@@ -8,18 +8,21 @@
 
 import Foundation
 
-extension NSData {
+extension Data {
     
-    func toBytes() -> [Int8]{
-        var bytes = [Int8](count:self.length,repeatedValue:0x0)
-        getBytes(&bytes,length: self.length);
+    func toBytes() -> [UInt8]{
+//        var bytes = [Int8](repeatElement(0x0, count: self.count))
+////        var bytes = [Int8](repeating: 0x0,count: self.count)
+//        
+//        getBytes(bytes,length: self.count);
+        let bytes = [UInt8](self)
         return bytes;
     }
 }
 
 extension String {
     
-    func indexOf(string: String) -> String.Index? {
-        return rangeOfString(string, options: .LiteralSearch, range: nil, locale: nil)?.startIndex
+    func indexOf(_ string: String) -> String.Index? {
+        return range(of: string, options: .literal, range: nil, locale: nil)?.lowerBound
     }
 }

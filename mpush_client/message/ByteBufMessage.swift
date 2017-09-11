@@ -11,62 +11,62 @@ import Foundation
 class ByteBufMessage: BaseMessage {
     
 
-    override func decode(body:NSData) {
+    override func decode(_ body:Data) {
         decode(RFIReader(data: body));
     }
     
     
-    override func encode() -> NSData {
+    override func encode() -> Data {
         let body = RFIWriter(capacity: 1024);
-        encode(body);
-        return body.getBuffer();
+        encode(body!);
+        return body!.getBuffer() as Data;
     }
     
-    func decode(body:RFIReader){
-    
-    }
-    
-    func encode(body:RFIWriter){
+    func decode(_ body:RFIReader){
     
     }
     
-    func encodeString(body:RFIWriter, field:String) {
-        body.writeString(field);
+    func encode(_ body:RFIWriter){
+    
     }
     
-    func encodeByte(body:RFIWriter, field:Int8) {
+    func encodeString(_ body:RFIWriter, field:String) {
+        body.write(field);
+    }
+    
+    func encodeByte(_ body:RFIWriter, field:Int8) {
          body.writeByte(field);
     }
     
-    func encodeInt(body:RFIWriter, field:Int) {
-        body.writeInt32(Int32(field));
+    func encodeInt(_ body:RFIWriter, field:Int) {
+        body.write(Int32(field));
     }
     
-    func encodeLong(body:RFIWriter, field:Int64) {
-        body.writeInt64(field);
+    func encodeLong(_ body:RFIWriter, field:Int64) {
+        body.write(field);
     }
     
-    func encodeBytes(body:RFIWriter, bytes:[Int8]) {
-        body.writeData(NSData(bytes: bytes, length: bytes.count))
+    func encodeBytes(_ body:RFIWriter, bytes:[Int8]) {
+        body.writeData(Data(bytes: bytes, count: bytes.count))
     }
     
-    func decodeString(body:RFIReader) -> String {
+    func decodeString(_ body:RFIReader) -> String {
         return body.readString();
     }
     
-    func decodeBytes(body:RFIReader) -> NSData {
+    func decodeBytes(_ body:RFIReader) -> Data {
         return body.readData();
     }
     
-    func decodeByte(body:RFIReader)  -> Int8 {
+    func decodeByte(_ body:RFIReader)  -> Int8 {
         return body.readByte();
     }
     
-    func decodeInt(body:RFIReader) -> Int32 {
+    func decodeInt(_ body:RFIReader) -> Int32 {
         return body.readInt32();
     }
     
-    func decodeLong(body:RFIReader) -> Int64 {
+    func decodeLong(_ body:RFIReader) -> Int64 {
         return body.readInt64();
     }
 }

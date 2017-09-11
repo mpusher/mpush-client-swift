@@ -13,16 +13,16 @@ class HttpRequestMessage: ByteBufMessage, CustomDebugStringConvertible {
     var method: Int8!;
     var uri: String!;
     var headers: Dictionary<String,String>!;
-    var body:NSData?;
+    var body:Data?;
     
     init(connection: Connection) {
-        super.init(packet: Packet(cmd: Command.HTTP_PROXY, sessionId: BaseMessage.genSessionId()), conn: connection);
+        super.init(packet: Packet(cmd: Command.http_PROXY, sessionId: BaseMessage.genSessionId()), conn: connection);
     }
     
-    override func encode(body:RFIWriter){
+    override func encode(_ body:RFIWriter){
         body.writeByte(method);
-        body.writeString(uri)
-        body.writeString(MPUtils.headerToString(headers))
+        body.write(uri)
+        body.write(MPUtils.headerToString(headers))
         body.writeData(self.body)
     }
     

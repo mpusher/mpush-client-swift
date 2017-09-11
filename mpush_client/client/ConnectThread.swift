@@ -9,9 +9,9 @@
 import Foundation
 
 final class ConnectThread {
-    private var connTask:ConnTask?;
-    private let connectQueue = dispatch_queue_create("connect_queue", nil);
-    private var isShutdown = false;
+    fileprivate var connTask:ConnTask?;
+    fileprivate let connectQueue = DispatchQueue(label: "connect_queue", attributes: []);
+    fileprivate var isShutdown = false;
     
     func start() {
         objc_sync_enter(self)
@@ -19,14 +19,14 @@ final class ConnectThread {
         objc_sync_exit(self)
     }
     
-    func addTask(task:() throws -> Bool) {
+    func addTask(_ task:@escaping () throws -> Bool) {
         objc_sync_enter(self)
         if(!isShutdown) {        
             if let t = connTask {
                 t.stop();
             }
             self.connTask = ConnTask(runningTask: task);
-            dispatch_async(connectQueue, {
+            connectQueue.async(execute: {
                 self.connTask?.run();
             });
         }
@@ -42,12 +42,12 @@ final class ConnectThread {
         objc_sync_exit(self)
     }
     
-    private class ConnTask {
+    fileprivate class ConnTask {
         
-        private var runningFlag = true;
-        private var runningTask:() throws -> Bool;
+        fileprivate var runningFlag = true;
+        fileprivate var runningTask:() throws -> Bool;
         
-        init (runningTask:() throws -> Bool){
+        init (runningTask:@escaping () throws -> Bool){
             self.runningTask = runningTask;
         }
         
@@ -55,7 +55,7 @@ final class ConnectThread {
             self.runningFlag = false;
         }
         
-        private func run() {
+        fileprivate func run() {
             while (runningFlag) {
                 do {
                     if (try runningTask()) {

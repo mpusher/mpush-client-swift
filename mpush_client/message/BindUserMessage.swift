@@ -17,23 +17,23 @@ final class BindUserMessage:ByteBufMessage, CustomDebugStringConvertible{
         super.init(packet: Packet(cmd: cmd, sessionId: BaseMessage.genSessionId()), conn: connection);
     }
     
-    class func  buildBind(connection: Connection) -> BindUserMessage {
-        return BindUserMessage(cmd: Command.BIND, connection: connection);
+    class func  buildBind(_ connection: Connection) -> BindUserMessage {
+        return BindUserMessage(cmd: Command.bind, connection: connection);
     }
     
-    class func buildUnbind(connection: Connection) -> BindUserMessage{
-        return BindUserMessage(cmd: Command.UNBIND, connection: connection);
+    class func buildUnbind(_ connection: Connection) -> BindUserMessage{
+        return BindUserMessage(cmd: Command.unbind, connection: connection);
     }
     
-    func setUserId(userId: String) -> BindUserMessage {
+    func setUserId(_ userId: String) -> BindUserMessage {
         self.userId = userId;
         return self;
     }
     
-    override func encode(body: RFIWriter) {
-        body.writeString(userId);
-        body.writeString(alias);
-        body.writeString(tags);
+    override func encode(_ body: RFIWriter) {
+        body.write(userId);
+        body.write(alias);
+        body.write(tags);
     }
     
     var debugDescription: String {

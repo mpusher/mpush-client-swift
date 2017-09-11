@@ -20,10 +20,10 @@ public final class AESUtils {
 *
 *  @return 加密后的data
 */
-class func encrypt(data:NSData, iv:[Int8], key:[Int8]) -> NSData? {
+class func encrypt(_ data:Data, iv:[UInt8], key:[UInt8]) -> Data? {
     
-    let encryptBufferSize = data.length + kCCBlockSizeAES128;
-    var encryptBuffer = [Int8](count: encryptBufferSize, repeatedValue: 0);
+    let encryptBufferSize = data.count + kCCBlockSizeAES128;
+    var encryptBuffer = [Int8](repeating: 0, count: encryptBufferSize);
     
     var numBytesEncrypted = 0;
     let cryptStatus = CCCrypt(UInt32(kCCEncrypt),
@@ -32,14 +32,14 @@ class func encrypt(data:NSData, iv:[Int8], key:[Int8]) -> NSData? {
         key,
         kCCKeySizeAES128,
         iv ,/* initialization vector (optional) */
-        data.bytes,
-        data.length, /* input */
+        (data as NSData).bytes,
+        data.count, /* input */
         &encryptBuffer,
         encryptBufferSize, /* output */
         &numBytesEncrypted);
     
     if (cryptStatus == Int32(kCCSuccess)) {
-        return NSData(bytes: &encryptBuffer, length:numBytesEncrypted);
+        return Data(bytes: &encryptBuffer, count:numBytesEncrypted);
     }
     
     return nil;
@@ -54,11 +54,11 @@ class func encrypt(data:NSData, iv:[Int8], key:[Int8]) -> NSData? {
 *
 *  @return 解密后的data
 */
-class func decrypt(data:NSData, iv:[Int8], key:[Int8]) -> NSData? {
+class func decrypt(_ data:Data, iv:[UInt8], key:[UInt8]) -> Data? {
     
     
-    let decryptBufferSize = data.length + kCCBlockSizeAES128;
-    var decryptBuffer = [Int8](count: decryptBufferSize, repeatedValue: 0);
+    let decryptBufferSize = data.count + kCCBlockSizeAES128;
+    var decryptBuffer = [Int8](repeating: 0, count: decryptBufferSize);
     
     var numBytesDecrypted = 0;
     let cryptStatus = CCCrypt(UInt32(kCCDecrypt),
@@ -67,15 +67,15 @@ class func decrypt(data:NSData, iv:[Int8], key:[Int8]) -> NSData? {
         key,
         kCCKeySizeAES128,
         iv ,/* initialization vector (optional) */
-        data.bytes,
-        data.length, /* input */
+        (data as NSData).bytes,
+        data.count, /* input */
         &decryptBuffer,
         decryptBufferSize, /* output */
         &numBytesDecrypted);
     
-
+    
     if (cryptStatus == Int32(kCCSuccess)) {
-        return NSData(bytes: &decryptBuffer, length:numBytesDecrypted);
+        return Data(bytes: decryptBuffer, count:numBytesDecrypted);
     }
     
     return nil;

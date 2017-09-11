@@ -24,7 +24,7 @@ protocol Connection {
     
     func isConnected() -> Bool;
     
-    func send(packet:Packet);
+    func send(_ packet:Packet);
     
     func isReadTimeout() -> Bool;
     
@@ -34,6 +34,6 @@ protocol Connection {
     
     func setLastWriteTime();
     
-    func setAutoConnect(autoConnect: Bool);
+    func setAutoConnect(_ autoConnect: Bool);
 
 }

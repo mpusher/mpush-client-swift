@@ -14,7 +14,7 @@ final class ErrorMessage: ByteBufMessage, CustomDebugStringConvertible {
     var reason: String?;
     var data: String?;
 
-    override func decode(body: RFIReader) {
+    override func decode(_ body: RFIReader) {
         cmd = body.readByte();
         code = body.readByte();
         reason = body.readString();

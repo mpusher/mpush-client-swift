@@ -12,8 +12,8 @@ final class PacketReader {
     let connection:Connection;
     let receiver:PacketReceiver;
     let buffer = UnsafeBuffer(initCapacity: 10240);
-    let readQueue = dispatch_queue_create("packet_read_queue", DISPATCH_QUEUE_SERIAL);
-    var readSource: dispatch_source_t?;
+    let readQueue = DispatchQueue(label: "packet_read_queue", attributes: []);
+    var readSource: DispatchSource?;
     
     init(conn:Connection, receiver:PacketReceiver){
         self.connection = conn;
@@ -24,21 +24,21 @@ final class PacketReader {
         //self.thread = NSThread(target: self, selector:#selector(PacketReader.doRead), object: nil)
         //self.thread!.start()
         if connection.fd > 0 {
-            let source = dispatch_source_create(DISPATCH_SOURCE_TYPE_READ, UInt(connection.fd), 0, readQueue);
-            self.readSource = source;
+            let source = DispatchSource.makeReadSource(fileDescriptor: connection.fd, queue: readQueue);
+            self.readSource = source as! DispatchSource;
             self.buffer.clear();
-            dispatch_source_set_event_handler(source, doRead);
-            dispatch_source_set_cancel_handler(source, {
+            source.setEventHandler(handler: doRead);
+            source.setCancelHandler(handler: {
                 print("read source cancelled");
             });
-            dispatch_resume(source);
+            source.resume();
         }
     }
     
     func stopRead() {
         //self.thread!.cancel();
         if let source = readSource {
-            dispatch_source_cancel(source)
+            source.cancel()
         }
     }
     
@@ -52,7 +52,7 @@ final class PacketReader {
         }
     }
     
-    func decodePacket(buffer:UnsafeBuffer) {
+    func decodePacket(_ buffer:UnsafeBuffer) {
         while let packet = PacketDecoder.decode(buffer) {
             receiver.onReceive(packet, connection: self.connection)
         }
@@ -62,7 +62,7 @@ final class PacketReader {
      * read data with expect length
      * return success or fail with message
      */
-    func read(buffer:UnsafeBuffer, timeout:Int = -1) -> Bool {
+    func read(_ buffer:UnsafeBuffer, timeout:Int = -1) -> Bool {
         if connection.fd > 0 {
             let readLen:Int32 = tcpsocket_read(connection.fd, buffer.writeBuffer(), Int32(buffer.writeableBytes()), Int32(timeout))
             if readLen > 0 {

@@ -9,9 +9,9 @@
 import Foundation
 
 final class PushMessage: BaseMessage, CustomDebugStringConvertible {
-    var content:NSData!;
+    var content:Data!;
     
-    override func decode(body:NSData) {
+    override func decode(_ body:Data) {
         content = body;
     }
     
@@ -25,6 +25,6 @@ final class PushMessage: BaseMessage, CustomDebugStringConvertible {
     }
     
     var debugDescription: String {
-        return "PushMessage={content:\(content.length)}"
+        return "PushMessage={content:\(content.count)}"
     }
 }

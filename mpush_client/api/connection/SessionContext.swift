@@ -13,15 +13,15 @@ final class SessionContext {
     var cipher:Cipher?;
     var bindUser:String?;
     
-    func changeCipher(cipher:Cipher) {
+    func changeCipher(_ cipher:Cipher) {
         self.cipher = cipher;
     }
     
-    func setHeartbeat(heartbeat:Int){
+    func setHeartbeat(_ heartbeat:Int){
         self.heartbeat = heartbeat;
     }
     
-    func setBindUser(userId: String?) {
+    func setBindUser(_ userId: String?) {
         self.bindUser = userId;
     }
     

@@ -10,11 +10,11 @@ import Foundation
 
 final class RsaCipher: Cipher {
 
-    func decrypt(data:NSData) throws -> NSData? {
+    func decrypt(_ data:Data) throws -> Data? {
         fatalError("unsupported");
     }
     
-    func encrypt(data:NSData) -> NSData? {
+    func encrypt(_ data:Data) -> Data? {
         do{
             return try RSAUtils.encrypt(data, publicKeyPEM: ClientConfig.I.publicKey);
         }catch _ {

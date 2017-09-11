@@ -11,7 +11,7 @@ import Foundation
 class FastConnectOkMessage:ByteBufMessage, CustomDebugStringConvertible {
     var heartbeat:Int!;
     
-    override func decode(body:RFIReader) {
+    override func decode(_ body:RFIReader) {
         heartbeat = Int(body.readInt32());
     }
     

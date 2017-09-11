@@ -10,7 +10,7 @@ import Foundation
 
 protocol SessionStorage {
     
-    func saveSession(sessionContext: String);
+    func saveSession(_ sessionContext: String);
     
     func getSession() -> String?;
     

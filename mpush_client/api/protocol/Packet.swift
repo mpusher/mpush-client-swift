@@ -18,16 +18,16 @@ class Packet {
     
     static let HB_PACKET_BYTE:Int8 = -33;
     static let HB_PACKET_BYTES:[Int8] = [HB_PACKET_BYTE];
-    static let HB_PACKET = Packet(cmd: Command.HEARTBEAT);
+    static let HB_PACKET = Packet(cmd: Command.heartbeat);
     
     let cmd:Int8;
     let cc:Int16;
     var flags:Int8;
     let sessionId:Int32;
     let lrc:Int8;
-    var body:NSData?;
+    var body:Data?;
     
-    init(cmd:Int8, cc:Int16=0, flags:Int8=0, sessionId:Int32=0, lrc:Int8 = 0, body:NSData?=nil){
+    init(cmd:Int8, cc:Int16=0, flags:Int8=0, sessionId:Int32=0, lrc:Int8 = 0, body:Data?=nil){
         self.cmd = cmd;
         self.cc = cc;
         self.flags = flags;
@@ -40,17 +40,17 @@ class Packet {
         self.init(cmd: cmd.rawValue, sessionId:sessionId);
     }
     
-    func addFlag(flag:Int8){
+    func addFlag(_ flag:Int8){
         self.flags |= flag;
     }
     
-    func hasFlag(flag:Int8) -> Bool {
+    func hasFlag(_ flag:Int8) -> Bool {
         return (flags&flag) != 0;
     }
     
     func getBodyLength() -> Int {
         if let b = self.body {
-            return b.length
+            return b.count
         }
         return 0;
     }

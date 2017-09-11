@@ -10,11 +10,11 @@ import Foundation
 
 final class FastConnectOkHandler: BaseMessageHandler<FastConnectOkMessage> {
     
-    override func decode(packet:Packet, connection:Connection) -> FastConnectOkMessage {
+    override func decode(_ packet:Packet, connection:Connection) -> FastConnectOkMessage {
         return FastConnectOkMessage(packet: packet, conn: connection);
     }
     
-    override func handle(message: FastConnectOkMessage) {
+    override func handle(_ message: FastConnectOkMessage) {
         ClientConfig.I.logger.w({">>> fast connect ok, message=\(message)"});
         
         let connection = message.getConnection();

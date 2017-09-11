@@ -10,7 +10,7 @@ import Foundation
 
 protocol HttpCallback {
     
-    func onResponse(response: HttpResponse);
+    func onResponse(_ response: HttpResponse);
     
     func onCancelled();
 }

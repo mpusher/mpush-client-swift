@@ -10,7 +10,7 @@ import Foundation
 
 final class PacketDecoder {
   
-    class func decode(buffer:UnsafeBuffer) -> Packet? {
+    class func decode(_ buffer:UnsafeBuffer) -> Packet? {
         if let hb = decodeHeartbeat(buffer) {
             return hb;
         }
@@ -18,7 +18,7 @@ final class PacketDecoder {
     }
     
     
-    class func decodeHeartbeat(buffer:UnsafeBuffer) -> Packet? {
+    class func decodeHeartbeat(_ buffer:UnsafeBuffer) -> Packet? {
         if(buffer.hasRemaining()){
             buffer.mark();
             if(buffer.readByte() == Packet.HB_PACKET_BYTE){
@@ -29,7 +29,7 @@ final class PacketDecoder {
         return nil;
     }
     
-    class func decodeFrame(buffer:UnsafeBuffer) -> Packet? {
+    class func decodeFrame(_ buffer:UnsafeBuffer) -> Packet? {
         if (buffer.readableBytes() >= Packet.HEADER_LEN) {
             buffer.mark();
             let bufferSize = buffer.readableBytes();
@@ -42,16 +42,19 @@ final class PacketDecoder {
         return nil;
     }
     
-    class func readPacket(buffer:UnsafeBuffer, bodyLength:Int) -> Packet? {
+    class func readPacket(_ buffer:UnsafeBuffer, bodyLength:Int) -> Packet? {
         let command = buffer.readByte();
         let cc = buffer.readShort();
         let flags = buffer.readByte()
         let sessionId = buffer.readInt();
         let lrc = buffer.readByte();
-        var body:NSData? = nil;
+        
+        var body:Data?;
         if (bodyLength > 0) {
             let data = buffer.readBytes(bodyLength)
-            body = NSData(bytes: data, length: data.count);
+            
+            
+            body = Data(bytes: data, count: data.count);
         }
         return Packet(cmd: command, cc: cc, flags: flags, sessionId: sessionId, lrc: lrc, body: body);
     }

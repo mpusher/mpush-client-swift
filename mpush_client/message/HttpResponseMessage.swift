@@ -13,9 +13,9 @@ class HttpResponseMessage: ByteBufMessage, CustomDebugStringConvertible {
     var statusCode: Int!;
     var reasonPhrase: String!;
     var headers: Dictionary<String,String>!;
-    var body: NSData?;
+    var body: Data?;
    
-    override func decode(body: RFIReader) {
+    override func decode(_ body: RFIReader) {
         statusCode = Int(body.readInt32());
         reasonPhrase = body.readString();
         headers = MPUtils.headerFromString(body.readString());

@@ -16,11 +16,11 @@ protocol MpushProtocal {
     
     func handshake();
     
-    func bindUser(userId: String?);
+    func bindUser(_ userId: String?);
     
     func unbindUser();
     
-    func ack(messageId: Int32);
+    func ack(_ messageId: Int32);
     
-    func sendHttp(request: HttpRequest) -> ResponseFuture;
+    func sendHttp(_ request: HttpRequest) -> ResponseFuture;
 }

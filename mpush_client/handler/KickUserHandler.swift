@@ -10,11 +10,11 @@ import Foundation
 
 final class KickUserHandler: BaseMessageHandler<KickUserMessage> {
     
-    override func decode(packet:Packet, connection:Connection) -> KickUserMessage {
+    override func decode(_ packet:Packet, connection:Connection) -> KickUserMessage {
         return KickUserMessage(packet: packet, conn: connection);
     }
     
-    override func handle(message: KickUserMessage) {
+    override func handle(_ message: KickUserMessage) {
         ClientConfig.I.logger.w({">>> receive kickUser message=\(message)"});
         let listener = ClientConfig.I.clientListener;
         listener.onKickUser(message.deviceId, userId: message.userId);

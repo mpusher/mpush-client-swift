@@ -9,7 +9,7 @@
 import Foundation
 
 public enum HttpMethod:Int8 {
-    case GET = 0, POST = 1, PUT = 2, DELETE = 3;
+    case get = 0, post = 1, put = 2, delete = 3;
 }
 
 public final class HttpRequest {
@@ -17,22 +17,22 @@ public final class HttpRequest {
     static let HTTP_HEAD_READ_TIMEOUT = "readTimeout";
     let method: HttpMethod;
     let uri: String;
-    private var headers = Dictionary<String,String>();
-    private var body:NSData?;
+    fileprivate var headers = Dictionary<String,String>();
+    fileprivate var body:Data?;
     var callback:HttpCallback?;
     var timeout:Int = 3000;
 
-    init(method: HttpMethod = .GET, uri: String){
+    init(method: HttpMethod = .get, uri: String){
         self.method = method;
         self.uri = uri;
     }
     
-    class func get(url:String) -> HttpRequest {
-        return HttpRequest(method: HttpMethod.GET, uri: url)
+    class func get(_ url:String) -> HttpRequest {
+        return HttpRequest(method: HttpMethod.get, uri: url)
     }
     
-    class func post(url:String) -> HttpRequest {
-        return HttpRequest(method: HttpMethod.GET, uri: url)
+    class func post(_ url:String) -> HttpRequest {
+        return HttpRequest(method: HttpMethod.get, uri: url)
     }
     
     func getHeaders() -> Dictionary<String, String> {
@@ -40,40 +40,40 @@ public final class HttpRequest {
         return headers;
     }
     
-    func setHeaders(headers: Dictionary<String, String>) -> HttpRequest {
+    func setHeaders(_ headers: Dictionary<String, String>) -> HttpRequest {
         for (k, v) in headers {
             self.headers.updateValue(v, forKey: k)
         }
         return self;
     }
     
-    func getBody() -> NSData? {
+    func getBody() -> Data? {
         return body;
     }
     
-    func setBody(body: NSData, contentType:String) -> HttpRequest {
+    func setBody(_ body: Data, contentType:String) -> HttpRequest {
         self.body = body;
         headers.updateValue(contentType, forKey: "Content-Type");
         return self;
     }
     
-    func setPostParams(params: Dictionary<String,String>, paramsEncoding:NSStringEncoding) -> HttpRequest {
+    func setPostParams(_ params: Dictionary<String,String>, paramsEncoding:String.Encoding) -> HttpRequest {
         if let bytes = encodeParameters(headers, paramsEncoding: paramsEncoding){
-            setBody(bytes, contentType: HttpRequest.CONTENT_TYPE_FORM + String.localizedNameOfStringEncoding(paramsEncoding));
+            setBody(bytes, contentType: HttpRequest.CONTENT_TYPE_FORM + String.localizedName(of: paramsEncoding));
         }
         return self;
     }
     
     
-    func encodeParameters(params: Dictionary<String,String>, paramsEncoding:NSStringEncoding) -> NSData? {
+    func encodeParameters(_ params: Dictionary<String,String>, paramsEncoding:String.Encoding) -> Data? {
         var encodedParams: String = "";
         for (k, v) in params {
-            encodedParams += k.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+            encodedParams += k.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
             encodedParams += "="
-            encodedParams += v.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet())!
+            encodedParams += v.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
             encodedParams += "&"
         }
-        return encodedParams.dataUsingEncoding(paramsEncoding)
+        return encodedParams.data(using: paramsEncoding)
     }
     
     

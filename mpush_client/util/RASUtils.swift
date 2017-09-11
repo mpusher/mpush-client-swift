@@ -20,7 +20,7 @@ import Foundation
 import Security
 
 
-public class RSAError: NSError {
+open class RSAError: NSError {
     init(message: String) {
         super.init(domain: "com.takescoop.SwiftyRSA", code: 500, userInfo: [
             NSLocalizedDescriptionKey: message
@@ -39,23 +39,23 @@ public class RSAError: NSError {
 public final class RSAUtils: NSObject {
     
     @objc public enum DigestType: Int {
-        case SHA1
-        case SHA224
-        case SHA256
-        case SHA384
-        case SHA512
+        case sha1
+        case sha224
+        case sha256
+        case sha384
+        case sha512
     }
 
-    private var keyTags: [NSData] = []
-    private static let defaultPadding: SecPadding = .PKCS1
+    fileprivate var keyTags: [Data] = []
+    fileprivate static let defaultPadding: SecPadding = .PKCS1
     
-    public class func encrypt(data: NSData, publicKeyPEM: String, padding: SecPadding = defaultPadding) throws -> NSData {
+    public class func encrypt(_ data: Data, publicKeyPEM: String, padding: SecPadding = defaultPadding) throws -> Data {
         let rsa = RSAUtils()
         let key = try rsa.publicKeyFromPEMString(publicKeyPEM)
         return try rsa.encryptData(data, publicKey: key, padding: padding)
     }
 
-    public class func decrypt(data: NSData, privateKeyPEM: String, padding: SecPadding = defaultPadding) throws -> NSData {
+    public class func decrypt(_ data: Data, privateKeyPEM: String, padding: SecPadding = defaultPadding) throws -> Data {
         let rsa = RSAUtils()
         let key = try rsa.privateKeyFromPEMString(privateKeyPEM)
         return try rsa.decryptData(data, privateKey: key, padding: padding)
@@ -67,36 +67,36 @@ public final class RSAUtils: NSObject {
         super.init()
     }
     
-    public func publicKeyFromDERData(keyData: NSData) throws -> SecKeyRef {
+    public func publicKeyFromDERData(_ keyData: Data) throws -> SecKey {
         return try addKey(keyData, isPublic: true)
     }
     
-    public func publicKeyFromPEMString(key: String) throws -> SecKeyRef {
+    public func publicKeyFromPEMString(_ key: String) throws -> SecKey {
         let data = try dataFromPEMKey(key)
         return try addKey(data, isPublic: true)
     }
     
-    public func privateKeyFromPEMString(key: String) throws -> SecKeyRef {
+    public func privateKeyFromPEMString(_ key: String) throws -> SecKey {
         let data = try dataFromPEMKey(key)
         return try addKey(data, isPublic: false)
     }
     
     // Encrypts data with a RSA key
-    public func encryptData(data: NSData, publicKey: SecKeyRef, padding: SecPadding) throws -> NSData {
+    public func encryptData(_ data: Data, publicKey: SecKey, padding: SecPadding) throws -> Data {
         let blockSize = SecKeyGetBlockSize(publicKey)
         let maxChunkSize = blockSize - 11
         
-        var decryptedDataAsArray = [UInt8](count: data.length / sizeof(UInt8), repeatedValue: 0)
-        data.getBytes(&decryptedDataAsArray, length: data.length)
+        var decryptedDataAsArray = [UInt8](repeating: 0, count: data.count / MemoryLayout<UInt8>.size)
+        (data as NSData).getBytes(&decryptedDataAsArray, length: data.count)
         
-        var encryptedData = [UInt8](count: 0, repeatedValue: 0)
+        var encryptedData = [UInt8](repeating: 0, count: 0)
         var idx = 0
         while (idx < decryptedDataAsArray.count) {
             
             let idxEnd = min(idx + maxChunkSize, decryptedDataAsArray.count)
             let chunkData = [UInt8](decryptedDataAsArray[idx..<idxEnd])
             
-            var encryptedDataBuffer = [UInt8](count: blockSize, repeatedValue: 0)
+            var encryptedDataBuffer = [UInt8](repeating: 0, count: blockSize)
             var encryptedDataLength = blockSize
             
             let status = SecKeyEncrypt(publicKey, padding, chunkData, chunkData.count, &encryptedDataBuffer, &encryptedDataLength)
@@ -110,24 +110,24 @@ public final class RSAUtils: NSObject {
             idx += maxChunkSize
         }
         
-        return NSData(bytes: encryptedData, length: encryptedData.count)
+        return Data(bytes: UnsafePointer<UInt8>(encryptedData), count: encryptedData.count)
     }
     
     // Decrypt an encrypted data with a RSA key
-    public func decryptData(encryptedData: NSData, privateKey: SecKeyRef, padding: SecPadding) throws -> NSData {
+    public func decryptData(_ encryptedData: Data, privateKey: SecKey, padding: SecPadding) throws -> Data {
         let blockSize = SecKeyGetBlockSize(privateKey)
         
-        var encryptedDataAsArray = [UInt8](count: encryptedData.length / sizeof(UInt8), repeatedValue: 0)
-        encryptedData.getBytes(&encryptedDataAsArray, length: encryptedData.length)
+        var encryptedDataAsArray = [UInt8](repeating: 0, count: encryptedData.count / MemoryLayout<UInt8>.size)
+        (encryptedData as NSData).getBytes(&encryptedDataAsArray, length: encryptedData.count)
         
-        var decryptedData = [UInt8](count: 0, repeatedValue: 0)
+        var decryptedData = [UInt8](repeating: 0, count: 0)
         var idx = 0
         while (idx < encryptedDataAsArray.count) {
             
             let idxEnd = min(idx + blockSize, encryptedDataAsArray.count)
             let chunkData = [UInt8](encryptedDataAsArray[idx..<idxEnd])
             
-            var decryptedDataBuffer = [UInt8](count: blockSize, repeatedValue: 0)
+            var decryptedDataBuffer = [UInt8](repeating: 0, count: blockSize)
             var decryptedDataLength = blockSize
             
             let status = SecKeyDecrypt(privateKey, padding, chunkData, idxEnd-idx, &decryptedDataBuffer, &decryptedDataLength)
@@ -140,12 +140,12 @@ public final class RSAUtils: NSObject {
             idx += blockSize
         }
         
-        return NSData(bytes: decryptedData, length: decryptedData.count)
+        return Data(bytes: UnsafePointer<UInt8>(decryptedData), count: decryptedData.count)
     }
     
     // MARK: - Private
     
-    private func addKey(keyData: NSData, isPublic: Bool) throws -> SecKeyRef {
+    fileprivate func addKey(_ keyData: Data, isPublic: Bool) throws -> SecKey {
         
         var keyData = keyData
         
@@ -154,12 +154,13 @@ public final class RSAUtils: NSObject {
             try keyData = stripPublicKeyHeader(keyData)
         }
         
-        let tag = NSUUID().UUIDString
-        let tagData = NSData(bytes: tag, length: tag.lengthOfBytesUsingEncoding(NSUTF8StringEncoding))
+        let tag = UUID().uuidString
+        let tagData = Data(bytes: UnsafePointer<UInt8>(tag), count: tag.lengthOfBytes(using: String.Encoding.utf8))
         removeKeyWithTagData(tagData)
         
         // Add persistent version of the key to system keychain
-        let persistKey = UnsafeMutablePointer<AnyObject?>(nil)
+//        let persistKey = UnsafeMutablePointer<AnyObject?>(nil)
+        var persistKey: UnsafeMutablePointer<AnyObject?>?
         let keyClass   = isPublic ? kSecAttrKeyClassPublic : kSecAttrKeyClassPrivate
         
         // Add persistent version of the key to system keychain
@@ -169,7 +170,7 @@ public final class RSAUtils: NSObject {
         keyDict.setObject(kSecAttrKeyTypeRSA,   forKey: kSecAttrKeyType as! NSCopying)
         keyDict.setObject(keyData,              forKey: kSecValueData as! NSCopying)
         keyDict.setObject(keyClass,             forKey: kSecAttrKeyClass as! NSCopying)
-        keyDict.setObject(NSNumber(bool: true), forKey: kSecReturnPersistentRef as! NSCopying)
+        keyDict.setObject(NSNumber(value: true as Bool), forKey: kSecReturnPersistentRef as! NSCopying)
         keyDict.setObject(kSecAttrAccessibleWhenUnlocked, forKey: kSecAttrAccessible as! NSCopying)
         
         var secStatus = SecItemAdd(keyDict as CFDictionary, persistKey)
@@ -181,22 +182,23 @@ public final class RSAUtils: NSObject {
         
         // Now fetch the SecKeyRef version of the key
         var keyRef: AnyObject? = nil
-        keyDict.removeObjectForKey(kSecValueData)
-        keyDict.removeObjectForKey(kSecReturnPersistentRef)
-        keyDict.setObject(NSNumber(bool: true), forKey: kSecReturnRef as! NSCopying)
+        keyDict.removeObject(forKey: kSecValueData)
+        keyDict.removeObject(forKey: kSecReturnPersistentRef)
+        keyDict.setObject(NSNumber(value: true as Bool), forKey: kSecReturnRef as! NSCopying)
         keyDict.setObject(kSecAttrKeyTypeRSA,   forKey: kSecAttrKeyType as! NSCopying)
-        secStatus = SecItemCopyMatching(keyDict as CFDictionaryRef, &keyRef)
+//        secStatus = SecItemCopyMatching(keyDict as CFDictionaryRef, &keyRef)
+        secStatus = SecItemCopyMatching(keyDict as CFDictionary, &keyRef)
         
         guard let unwrappedKeyRef = keyRef else {
             throw RSAError(message: "Couldn't get key reference from the keychain")
         }
         
-        return unwrappedKeyRef as! SecKeyRef
+        return unwrappedKeyRef as! SecKey
     }
     
-    private func dataFromPEMKey(key: String) throws -> NSData {
+    fileprivate func dataFromPEMKey(_ key: String) throws -> Data {
         
-        let lines = key.componentsSeparatedByString("\n").filter { line in
+        let lines = key.components(separatedBy: "\n").filter { line in
             return !line.hasPrefix("-----BEGIN") && !line.hasPrefix("-----END")
         }
         
@@ -205,10 +207,10 @@ public final class RSAUtils: NSObject {
         }
         
         // Decode base64 key
-        let base64EncodedKey = lines.joinWithSeparator("")
-        let keyData = NSData(base64EncodedString: base64EncodedKey, options: .IgnoreUnknownCharacters)
+        let base64EncodedKey = lines.joined(separator: "")
+        let keyData = Data(base64Encoded: base64EncodedKey, options: .ignoreUnknownCharacters)
         
-        guard let unwrappedKeyData = keyData where unwrappedKeyData.length != 0 else {
+        guard let unwrappedKeyData = keyData, unwrappedKeyData.count != 0 else {
             throw RSAError(message: "Couldn't decode PEM key data (base64)")
         }
         
@@ -242,15 +244,15 @@ public final class RSAUtils: NSObject {
      Example of key with X509 header (notice the additional ASN.1 sequence):
      https://lapo.it/asn1js/#30819F300D06092A864886F70D010101050003818D0030818902818100D0674615A252ED3D75D2A3073A0A8A445F3188FD3BEB8BA8584F7299E391BDEC3427F287327414174997D147DD8CA62647427D73C9DA5504E0A3EED5274A1D50A1237D688486FADB8B82061675ABFA5E55B624095DB8790C6DBCAE83D6A8588C9A6635D7CF257ED1EDE18F04217D37908FD0CBB86B2C58D5F762E6207FF7B92D0203010001
      */
-    private func stripPublicKeyHeader(keyData: NSData) throws -> NSData {
-        let count = keyData.length / sizeof(CUnsignedChar)
+    fileprivate func stripPublicKeyHeader(_ keyData: Data) throws -> Data {
+        let count = keyData.count / MemoryLayout<CUnsignedChar>.size
         
         guard count > 0 else {
             throw RSAError(message: "Provided public key is empty")
         }
         
-        var byteArray = [UInt8](count: count, repeatedValue: 0)
-        keyData.getBytes(&byteArray, length: keyData.length)
+        var byteArray = [UInt8](repeating: 0, count: count)
+        (keyData as NSData).getBytes(&byteArray, length: keyData.count)
         
         var index = 0
         guard byteArray[index] == 0x30 else {
@@ -297,18 +299,18 @@ public final class RSAUtils: NSObject {
         
         index += 1
         
-        let strippedKeyBytes = [UInt8](byteArray[index...keyData.length - 1])
-        let data = NSData(bytes: strippedKeyBytes, length: keyData.length - index)
+        let strippedKeyBytes = [UInt8](byteArray[index...keyData.count - 1])
+        let data = Data(bytes: UnsafePointer<UInt8>(strippedKeyBytes), count: keyData.count - index)
         
         return data
     }
     
-    private func removeKeyWithTagData(tagData: NSData) {
+    fileprivate func removeKeyWithTagData(_ tagData: Data) {
         let publicKey = NSMutableDictionary()
         publicKey.setObject(kSecClassKey,       forKey: kSecClass as! NSCopying)
         publicKey.setObject(kSecAttrKeyTypeRSA, forKey: kSecAttrKeyType as! NSCopying)
         publicKey.setObject(tagData,            forKey: kSecAttrApplicationTag as! NSCopying)
-        SecItemDelete(publicKey as CFDictionaryRef)
+        SecItemDelete(publicKey as CFDictionary)
     }
     
     deinit {

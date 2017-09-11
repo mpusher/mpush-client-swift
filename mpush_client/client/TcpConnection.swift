@@ -11,8 +11,8 @@ import Foundation
 final class TcpConnection: Connection {
     static let MAX_TOTAL_RESTART_COUNT = 1000;
     static let MAX_RESTART_COUNT = 10;
-    private enum State: Int32 {
-        case Connecting, Connected, Disconnecting, Disconnected
+    fileprivate enum State: Int32 {
+        case connecting, connected, disconnecting, disconnected
     }
     
     var fd: Int32 = 0;
@@ -20,24 +20,24 @@ final class TcpConnection: Connection {
     var context: SessionContext;
     
     
-    private let connLock = NSCondition();
-    private let config:ClientConfig ;
-    private let logger:Logger;
-    private let listener:ClientListener;
+    fileprivate let connLock = NSCondition();
+    fileprivate let config:ClientConfig ;
+    fileprivate let logger:Logger;
+    fileprivate let listener:ClientListener;
     
-    private var state = State.Disconnected.rawValue;
+    fileprivate var state = State.disconnected.rawValue;
    
-    private var writer: PacketWriter!;
-    private var reader: PacketReader!;
+    fileprivate var writer: PacketWriter!;
+    fileprivate var reader: PacketReader!;
     
-    private var lastReadTime:Double = 0;
-    private var lastWriteTime:Double = 0;
+    fileprivate var lastReadTime:Double = 0;
+    fileprivate var lastWriteTime:Double = 0;
     
-    private var totalReconnectCount = 0;
-    private var reconnectCount = 0;
-    private var autoConnect = true;
-    private let connectThread = ConnectThread();
-    private let allotClient = AllotClient();
+    fileprivate var totalReconnectCount = 0;
+    fileprivate var reconnectCount = 0;
+    fileprivate var autoConnect = true;
+    fileprivate let connectThread = ConnectThread();
+    fileprivate let allotClient = AllotClient();
     
 
     init(client:Client, receiver:PacketReceiver){
@@ -50,18 +50,18 @@ final class TcpConnection: Connection {
         self.writer = PacketWriter(conn: self, connLock: connLock);
     }
     
-    private func onConnected(fd: Int32) {
+    fileprivate func onConnected(_ fd: Int32) {
         self.reconnectCount = 0;
         self.fd = fd;
         self.context = SessionContext();
-        self.state = State.Connected.rawValue;
+        self.state = State.connected.rawValue;
         self.reader.startRead();
         logger.w("connection connected !!!");
         listener.onConnected(client);
     }
     
     func close() {
-        if(compareAndSwapState(old: .Connected, new: .Disconnecting)) {
+        if(compareAndSwapState(old: .connected, new: .disconnecting)) {
             connectThread.stop();
             reader.stopRead();
             doClose();
@@ -73,7 +73,7 @@ final class TcpConnection: Connection {
      * close socket
      * return success or fail with message
      */
-    private func doClose() {
+    fileprivate func doClose() {
         connLock.lock();
         if fd > 0 {
             tcpsocket_close(fd)
@@ -81,12 +81,12 @@ final class TcpConnection: Connection {
             listener.onDisConnected(client);
             logger.w("fd closed !!!");
         }
-        state = State.Disconnected.rawValue;
+        state = State.disconnected.rawValue;
         connLock.unlock();
     }
     
     func connect() {
-        if(compareAndSwapState(old: .Disconnected, new: .Connecting)) {
+        if(compareAndSwapState(old: .disconnected, new: .connecting)) {
             connectThread.start();
             connectThread.addTask(self.doReconnect)
         }
@@ -97,11 +97,11 @@ final class TcpConnection: Connection {
         connect();
     }
     
-    private func doReconnect() -> Bool {
+    fileprivate func doReconnect() -> Bool {
         if (totalReconnectCount > TcpConnection.MAX_TOTAL_RESTART_COUNT || !autoConnect) {// 过载保护
             logger.w({"doReconnect failure reconnect count over limit or autoConnect off,"
                 + "total=\(self.totalReconnectCount), state=\(self.state), autoConnect=\(self.autoConnect)"});
-            state = State.Disconnected.rawValue;
+            state = State.disconnected.rawValue;
             return true;
         }
     
@@ -112,25 +112,25 @@ final class TcpConnection: Connection {
         logger.d({"try doReconnect, count=\(self.reconnectCount), total=\(self.totalReconnectCount), state=\(self.state), autoConnect=\(self.autoConnect)"});
         
         if (reconnectCount > TcpConnection.MAX_RESTART_COUNT) {    // 超过此值 sleep 10min
-            if (connLock.waitUntilDate(NSDate().dateByAddingTimeInterval(10 * 60))) {
-                state = State.Disconnected.rawValue;
+            if (connLock.wait(until: Date().addingTimeInterval(10 * 60))) {
+                state = State.disconnected.rawValue;
                 connLock.unlock();
                 return true;
             } else {
                 reconnectCount = 0;
             }
         } else if (reconnectCount > 2) {             // 第二次重连时开始按秒sleep，然后重试
-            if (connLock.waitUntilDate(NSDate().dateByAddingTimeInterval(Double(reconnectCount)))) {
-                state = State.Disconnected.rawValue;
+            if (connLock.wait(until: Date().addingTimeInterval(Double(reconnectCount)))) {
+                state = State.disconnected.rawValue;
                 connLock.unlock();
                 return true;
             }
         }
         connLock.unlock();
         
-        if (state != State.Connecting.rawValue || !autoConnect) {
+        if (state != State.connecting.rawValue || !autoConnect) {
             logger.w({"doReconnect failure, count=\(self.reconnectCount), total=\(self.totalReconnectCount), state=\(self.state), autoConnect=\(self.autoConnect)"});
-            state = State.Disconnected.rawValue;
+            state = State.disconnected.rawValue;
             return true;
         }
     
@@ -138,24 +138,24 @@ final class TcpConnection: Connection {
         return doConnect();
     }
     
-    private func doConnect() -> Bool {
+    fileprivate func doConnect() -> Bool {
         var address = allotClient.getServerAddress();
         
         for i in 0 ..< address.count {
-           let host_ip =  address[i].componentsSeparatedByString(":");
+           let host_ip =  address[i].components(separatedBy: ":");
             if(host_ip.count == 2){
                 let host = host_ip[0];
                 let port = Int32(host_ip[1]);
                 return doConnect(host, port: port!);
             }
             
-            address.removeAtIndex(i);
+            address.remove(at: i);
         }
         
         return false;
     }
     
-    private func doConnect(host:String, port:Int32, timeout:Int32 = 3) -> Bool {
+    fileprivate func doConnect(_ host:String, port:Int32, timeout:Int32 = 3) -> Bool {
         connLock.lock();
         defer {connLock.unlock()};
         logger.w({"try connect server [\(host):\(port)]"});
@@ -180,7 +180,7 @@ final class TcpConnection: Connection {
         }    
     }
     
-    func setAutoConnect(autoConnect: Bool) {
+    func setAutoConnect(_ autoConnect: Bool) {
         self.connLock.lock();
         self.autoConnect = autoConnect;
         self.connLock.broadcast();
@@ -188,10 +188,10 @@ final class TcpConnection: Connection {
     }
     
     func isConnected() -> Bool {
-        return fd > 0 && state == State.Connected.rawValue;
+        return fd > 0 && state == State.connected.rawValue;
     }
     
-    func send(packet:Packet) {
+    func send(_ packet:Packet) {
         writer.write(packet);
     }
     
@@ -215,7 +215,7 @@ final class TcpConnection: Connection {
         lastWriteTime = CACurrentMediaTime();
     }
 
-    private func compareAndSwapState(old old: State, new: State) -> Bool {
+    fileprivate func compareAndSwapState(old: State, new: State) -> Bool {
         return OSAtomicCompareAndSwap32(old.rawValue, new.rawValue, &state);
     }
 }

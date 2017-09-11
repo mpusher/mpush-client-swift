@@ -13,7 +13,7 @@ final class OkMessage: ByteBufMessage, CustomDebugStringConvertible {
     var code:Int8 = 0;
     var data:String?;
     
-    override func decode(body: RFIReader) {
+    override func decode(_ body: RFIReader) {
         cmd = body.readByte();
         code = body.readByte();
         data = body.readString();

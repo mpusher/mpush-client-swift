@@ -10,13 +10,13 @@ import Foundation
 
 protocol ClientListener {
     
-    func onConnected(client: Client);
+    func onConnected(_ client: Client);
     
-    func onDisConnected(client: Client);
+    func onDisConnected(_ client: Client);
     
-    func onHandshakeOk(client: Client, heartbeat: Int);
+    func onHandshakeOk(_ client: Client, heartbeat: Int);
     
-    func onReceivePush(client: Client, content: NSData, messageId: Int32);
+    func onReceivePush(_ client: Client, content: Data, messageId: Int32);
     
-    func onKickUser(deviceId: String, userId: String);
+    func onKickUser(_ deviceId: String, userId: String);
 }

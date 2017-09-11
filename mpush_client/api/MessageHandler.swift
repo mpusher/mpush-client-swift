@@ -9,5 +9,5 @@
 import Foundation
 
 protocol MessageHandler {
-    func handle(packet:Packet, connection:Connection) throws;
+    func handle(_ packet:Packet, connection:Connection) throws;
 }

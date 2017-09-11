@@ -14,8 +14,8 @@ protocol Cipher {
     
     //func encrypt(bytes:[Int8]) -> [Int8];
     
-    func decrypt(data:NSData) throws -> NSData?;
+    func decrypt(_ data:Data) throws -> Data?;
     
-    func encrypt(data:NSData) -> NSData?;
+    func encrypt(_ data:Data) -> Data?;
     
 }

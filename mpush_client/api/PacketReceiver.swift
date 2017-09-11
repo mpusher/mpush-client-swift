@@ -10,6 +10,6 @@ import Foundation
 
 protocol PacketReceiver {
     
-    func onReceive(packet:Packet, connection:Connection);
+    func onReceive(_ packet:Packet, connection:Connection);
     
 }

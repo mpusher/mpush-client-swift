@@ -14,28 +14,28 @@ final class HttpRequestQueue {
     
     static let response408 = HttpResponse(statusCode: 408, reasonPhrase: "Request Timeout");
     
-    private var qeueue = Dictionary<Int32, RequestTask>();
-    private let httpTimerQueue = dispatch_queue_create("http_timer_queue", DISPATCH_QUEUE_CONCURRENT);
+    fileprivate var qeueue = Dictionary<Int32, RequestTask>();
+    fileprivate let httpTimerQueue = DispatchQueue(label: "http_timer_queue", attributes: DispatchQueue.Attributes.concurrent);
    
     
-    func add(sessionId: Int32, request: HttpRequest) -> ResponseFuture {
+    func add(_ sessionId: Int32, request: HttpRequest) -> ResponseFuture {
         let task = RequestTask(sessionId: sessionId, request: request, queue: self);
         qeueue.updateValue(task, forKey: sessionId)
         setTimer(sessionId, timeout: task.timeout);
         return task;
     }
     
-    private func setTimer(sessionId: Int32, timeout: Int) {
+    fileprivate func setTimer(_ sessionId: Int32, timeout: Int) {
         let delay = (Int64)(UInt64(timeout/1000 - 1) * NSEC_PER_SEC)
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, delay), httpTimerQueue) {
+        httpTimerQueue.asyncAfter(deadline: DispatchTime.now() + Double(delay) / Double(NSEC_PER_SEC)) {
             if let task = self.getAndRemove(sessionId) {
                 task.onTimeout();
             }
         }
     }
     
-    func getAndRemove(sessionId: Int32) -> RequestTask? {
-        return qeueue.removeValueForKey(sessionId);
+    func getAndRemove(_ sessionId: Int32) -> RequestTask? {
+        return qeueue.removeValue(forKey: sessionId);
     }
 }
 
@@ -89,7 +89,7 @@ final class RequestTask: ResponseFuture {
         onResponse(HttpRequestQueue.response408)
     }
     
-    func onResponse(response: HttpResponse) {
+    func onResponse(_ response: HttpResponse) {
         if(tryComplete()) {
             self.response = response;
             if let lock = self.lock {
@@ -120,7 +120,7 @@ final class RequestTask: ResponseFuture {
         
         if let lock = self.lock {
             lock.lock();
-            lock.waitUntilDate(NSDate().dateByAddingTimeInterval(Double(timeout / 1000)));
+            lock.wait(until: Date().addingTimeInterval(Double(timeout / 1000)));
             lock.unlock();
         }
         return response;

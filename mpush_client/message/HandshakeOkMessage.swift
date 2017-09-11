@@ -11,12 +11,12 @@ import Foundation
 
 class HandshakeOkMessage: ByteBufMessage, CustomDebugStringConvertible {
     
-    var serverKey:NSData!;
+    var serverKey:Data!;
     var heartbeat:Int!;
     var sessionId:String!;
     var expireTime:Int64!;
     
-    override func decode(body:RFIReader) {
+    override func decode(_ body:RFIReader) {
         serverKey = body.readData();
         heartbeat = Int(body.readInt32());
         sessionId = body.readString()!;

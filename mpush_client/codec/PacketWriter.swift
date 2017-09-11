@@ -11,7 +11,7 @@ import Foundation
 final class PacketWriter {
     static let DEFAULT_WRITE_TIMEOUT:Double = 10;
     let connection:Connection;
-    let writeQueue = dispatch_queue_create("packet_write_queue", DISPATCH_QUEUE_SERIAL);
+    let writeQueue = DispatchQueue(label: "packet_write_queue", attributes: []);
     let buffer = UnsafeBuffer(initCapacity: 10240);
     let connLock:NSCondition;
     let logger = ClientConfig.I.logger;
@@ -20,9 +20,9 @@ final class PacketWriter {
         self.connLock = connLock;
     }
     
-    func write(packet:Packet) {
+    func write(_ packet:Packet) {
         let sendTime = CACurrentMediaTime();
-        dispatch_async(writeQueue, {
+        writeQueue.async(execute: {
             self.buffer.clear();
             PacketEncoder.encode(packet, out: self.buffer);
             while(self.buffer.hasRemaining()){
@@ -41,7 +41,7 @@ final class PacketWriter {
                     return;
                 } else {
                     self.connLock.lock();
-                    self.connLock.waitUntilDate(NSDate().dateByAddingTimeInterval(PacketWriter.DEFAULT_WRITE_TIMEOUT));
+                    self.connLock.wait(until: Date().addingTimeInterval(PacketWriter.DEFAULT_WRITE_TIMEOUT));
                     self.connLock.unlock();
                 }
             }
@@ -49,7 +49,7 @@ final class PacketWriter {
         });
     }
     
-    private func isTimeout(start:CFTimeInterval) -> Bool{
+    fileprivate func isTimeout(_ start:CFTimeInterval) -> Bool{
         return CACurrentMediaTime() - start > PacketWriter.DEFAULT_WRITE_TIMEOUT;
     }
     
@@ -57,7 +57,7 @@ final class PacketWriter {
      * write data
      * return success or fail with message
      */
-   private func write(buffer:UnsafeBuffer) -> Int {
+   fileprivate func write(_ buffer:UnsafeBuffer) -> Int {
         if connection.fd > 0 {
             let readableBytes = buffer.readableBytes();
             let writeLen:Int32 = tcpsocket_write(connection.fd, buffer.readBuffer(), Int32(readableBytes))

@@ -13,7 +13,7 @@ final class KickUserMessage:ByteBufMessage, CustomDebugStringConvertible{
     var userId: String!;
     
     
-    override func decode(body: RFIReader) {
+    override func decode(_ body: RFIReader) {
         deviceId = body.readString();
         userId = body.readString();
     }

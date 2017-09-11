@@ -19,7 +19,7 @@ final class AllotClient:NSObject, NSURLConnectionDataDelegate {
         return serverList;
     }
     
-   private func getServerAddressList() -> [String] {
+   fileprivate func getServerAddressList() -> [String] {
         guard let allot = ClientConfig.I.allotServer else {
             if let serverHost = ClientConfig.I.serverHost {
                 serverList = [serverHost + ":" + ClientConfig.I.serverPort!.description];
@@ -27,24 +27,24 @@ final class AllotClient:NSObject, NSURLConnectionDataDelegate {
             return serverList;
         }
         
-        if let url = NSURL(string: allot) {
+        if let url = URL(string: allot) {
             
-            let semaphore: dispatch_semaphore_t = dispatch_semaphore_create(0);
+            let semaphore: DispatchSemaphore = DispatchSemaphore(value: 0);
             
-            NSURLSession.sharedSession().dataTaskWithURL(url) { data, response, error in
+            URLSession.shared.dataTask(with: url, completionHandler: { data, response, error in
                 if let e = error {
                     print(e)
-                    dispatch_semaphore_signal(semaphore);
+                    semaphore.signal();
                     return;
                 }
                 
                 if let d = data {
-                    self.serverList = NSString(data: d, encoding: NSUTF8StringEncoding)!.componentsSeparatedByString(",");
-                    dispatch_semaphore_signal(semaphore);
+                    self.serverList = NSString(data: d, encoding: String.Encoding.utf8.rawValue)!.components(separatedBy: ",");
+                    semaphore.signal();
                 }
-           }.resume();
+           }) .resume();
         
-            dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+            semaphore.wait(timeout: DispatchTime.distantFuture);
         }
         return serverList;
     }

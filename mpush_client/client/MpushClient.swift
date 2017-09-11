@@ -9,13 +9,13 @@
 import Foundation
 
 final class MpushClient:Client {
-    private static let MAX_HB_TIMEOUT_COUNT = 2;
-    private let receiver = MessageDispatcher();
-    private let config:ClientConfig;
-    private let logger:Logger;
-    private var hbTimeoutTimes = 0;
-    private var connection:Connection!;
-    private var httpQueue: HttpRequestQueue!;
+    fileprivate static let MAX_HB_TIMEOUT_COUNT = 2;
+    fileprivate let receiver = MessageDispatcher();
+    fileprivate let config:ClientConfig;
+    fileprivate let logger:Logger;
+    fileprivate var hbTimeoutTimes = 0;
+    fileprivate var connection:Connection!;
+    fileprivate var httpQueue: HttpRequestQueue!;
     
     init(config: ClientConfig) {
         self.config = config;
@@ -23,7 +23,7 @@ final class MpushClient:Client {
         self.connection = TcpConnection(client: self, receiver: receiver);
         if(config.enableHttpProxy){
             self.httpQueue = HttpRequestQueue();
-            receiver.register(Command.HTTP_PROXY, handler: HttpProxyHandler(queue: httpQueue));
+            receiver.register(Command.http_PROXY, handler: HttpProxyHandler(queue: httpQueue));
         }
     }
     
@@ -99,7 +99,7 @@ final class MpushClient:Client {
         logger.w({"<<< do handshake, message=\(message)"});
     }
     
-    func bindUser(userId: String?) {
+    func bindUser(_ userId: String?) {
         guard let uid = userId else {
             logger.w("bind user is null");
             return;
@@ -135,14 +135,14 @@ final class MpushClient:Client {
         logger.w({"<<< do unbind user, userId=\(uid)"});
     }
     
-    func ack(messageId: Int32) {
+    func ack(_ messageId: Int32) {
         if messageId > 0 {
             AckMessage(sessionId: messageId, conn: connection).sendRaw();
             ClientConfig.I.logger.w({"<<< send ack for push messageId=\(messageId)"});
         }
     }
     
-    func sendHttp(request: HttpRequest) -> ResponseFuture {
+    func sendHttp(_ request: HttpRequest) -> ResponseFuture {
         if (connection.context.handshakeOk()) {
             let message = HttpRequestMessage(connection: connection);
             message.method = request.method.rawValue;

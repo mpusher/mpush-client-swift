@@ -9,24 +9,24 @@
 import Foundation
 
 final class AesCipher: Cipher, CustomStringConvertible {
-    let iv:[Int8];
-    let key:[Int8];
+    let iv:[UInt8];
+    let key:[UInt8];
     
-    init(key:[Int8], iv:[Int8]){        
+    init(key:[UInt8], iv:[UInt8]){
         self.key = key;
         self.iv = iv;
     }
     
-    init(iv:NSData, key:NSData){
+    init(iv:Data, key:Data){
         self.iv = iv.toBytes();
         self.key = key.toBytes();
     }
     
-    func decrypt(data:NSData) throws -> NSData? {
+    func decrypt(_ data:Data) throws -> Data? {
         return AESUtils.decrypt(data, iv:iv, key: key)!
     }
     
-    func encrypt(data:NSData) -> NSData? {
+    func encrypt(_ data:Data) -> Data? {
         return AESUtils.encrypt(data, iv:iv, key: key);
     }
     
@@ -35,7 +35,7 @@ final class AesCipher: Cipher, CustomStringConvertible {
         return AesCipher.toString(key) + "," + AesCipher.toString(iv);
     }
     
-    class func toString(array: [Int8]) -> String {
+    class func toString(_ array: [UInt8]) -> String {
         var result = "";
         for i in 0 ..< array.count {
             if(i != 0){
@@ -46,16 +46,16 @@ final class AesCipher: Cipher, CustomStringConvertible {
         return result;
     }
     
-    class func toArray(value:String) -> [Int8]? {
-        let array = value.componentsSeparatedByString("|");
+    class func toArray(_ value:String) -> [UInt8]? {
+        let array = value.components(separatedBy: "|");
         if(array.count != 16){
             return nil;
         }
         
-        var bytes = [Int8](count:array.count,repeatedValue:0x0);
+        var bytes = [UInt8](repeating: 0x0,count: array.count);
         
         for i in 0 ..< array.count {
-            bytes[i] = Int8(array[i])!;
+            bytes[i] = UInt8(array[i])!;
         }
         
         return bytes;

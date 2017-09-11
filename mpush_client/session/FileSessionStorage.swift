@@ -11,29 +11,29 @@ import Foundation
 final class FileSessionStorage: SessionStorage {
     
     //private let rootDir: String;
-    private let fileName = "mpush-token.dat";
+    fileprivate let fileName = "mpush-token.dat";
 
-    func saveSession(sessionContext: String) {
+    func saveSession(_ sessionContext: String) {
         
-        if let dir = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first {
-            let path = NSURL(fileURLWithPath: dir).URLByAppendingPathComponent(fileName)
+        if let dir = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
+            let path = URL(fileURLWithPath: dir).appendingPathComponent(fileName)
             
             //writing
             do {
-                try sessionContext.writeToURL(path!, atomically: false, encoding: NSUTF8StringEncoding)
+                try sessionContext.write(to: path, atomically: false, encoding: String.Encoding.utf8)
             }
             catch {/* error handling here */}
         }    
     }
     
     func getSession() -> String? {//reading
-        if let dir = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first {
+        if let dir = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
 
-            let path = NSURL(fileURLWithPath: dir).URLByAppendingPathComponent(fileName);
-            let fileManager = NSFileManager.defaultManager();
-            if(fileManager.fileExistsAtPath(path!.path!)) {
+            let path = URL(fileURLWithPath: dir).appendingPathComponent(fileName);
+            let fileManager = FileManager.default;
+            if(fileManager.fileExists(atPath: path.path)) {
                 do {
-                    let sessionContext = try String(contentsOfURL: path!, encoding: NSUTF8StringEncoding);
+                    let sessionContext = try String(contentsOf: path, encoding: String.Encoding.utf8);
                     return sessionContext;
                 }
                 catch {/* error handling here */}
@@ -44,11 +44,11 @@ final class FileSessionStorage: SessionStorage {
     }
     
     func clearSession(){
-        if let dir = NSSearchPathForDirectoriesInDomains(NSSearchPathDirectory.CachesDirectory, NSSearchPathDomainMask.AllDomainsMask, true).first {
-            let path = NSURL(fileURLWithPath: dir).URLByAppendingPathComponent(fileName);
-            let fileManager = NSFileManager.defaultManager();
+        if let dir = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.allDomainsMask, true).first {
+            let path = URL(fileURLWithPath: dir).appendingPathComponent(fileName);
+            let fileManager = FileManager.default;
             do{
-                try fileManager.removeItemAtURL(path!);
+                try fileManager.removeItem(at: path);
             }catch {/* error handling here */}
         }
     }

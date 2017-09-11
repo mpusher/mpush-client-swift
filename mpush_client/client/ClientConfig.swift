@@ -8,11 +8,11 @@
 
 import Foundation
 
-public class ClientConfig {
+open class ClientConfig {
     
     static let I = ClientConfig();
     
-    private init(){}
+    fileprivate init(){}
     
     var allotServer:String?;
     var serverHost:String?;
@@ -43,7 +43,7 @@ public class ClientConfig {
         return MpushClient(config: self);
     }
     
-    func setClientListener(listener: ClientListener) {
+    func setClientListener(_ listener: ClientListener) {
         clientListener.setListener(listener);
     }
     

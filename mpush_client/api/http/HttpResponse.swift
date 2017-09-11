@@ -8,13 +8,13 @@
 
 import Foundation
 
-public class HttpResponse {
+open class HttpResponse {
     let statusCode: Int;
     let reasonPhrase: String;
     let headers: Dictionary<String,String>?;
-    var body: NSData?;
+    var body: Data?;
     
-    init(statusCode: Int, reasonPhrase: String, headers: Dictionary<String,String>? = nil, body: NSData? = nil){
+    init(statusCode: Int, reasonPhrase: String, headers: Dictionary<String,String>? = nil, body: Data? = nil){
         self.statusCode = statusCode;
         self.reasonPhrase = reasonPhrase;
         self.headers = headers;

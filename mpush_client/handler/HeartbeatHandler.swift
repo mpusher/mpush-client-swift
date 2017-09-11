@@ -10,7 +10,7 @@ import Foundation
 
 class HeartbeatHandler: MessageHandler {
     
-    func handle(packet:Packet, connection:Connection) {
+    func handle(_ packet:Packet, connection:Connection) {
         ClientConfig.I.logger.d(">>> receive heartbeat pong...")
         //connection.reconnect();
     }

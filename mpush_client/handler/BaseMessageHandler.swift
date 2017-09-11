@@ -10,15 +10,15 @@ import Foundation
 
 class BaseMessageHandler<T:BaseMessage>: MessageHandler {
     
-    func decode(packet:Packet, connection:Connection) -> T {
+    func decode(_ packet:Packet, connection:Connection) -> T {
         fatalError("implement me!");
     }
     
-    func handle(message:T) {
+    func handle(_ message:T) {
         
     }
     
-    func handle(packet:Packet, connection:Connection)  throws {
+    func handle(_ packet:Packet, connection:Connection)  throws {
         let t = decode(packet, connection: connection);
         try t.decodeBody();
         handle(t);

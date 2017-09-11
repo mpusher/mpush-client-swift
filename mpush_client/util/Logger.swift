@@ -9,12 +9,12 @@
 import Foundation
 
 final class Logger {
-    private static let TAG = "[mpush]";
-    private static let formatter = NSDateFormatter();
+    fileprivate static let TAG = "[mpush]";
+    fileprivate static let formatter = DateFormatter();
     
-    private var enable = true;
+    fileprivate var enable = true;
     
-    func enable(enabled: Bool) {
+    func enable(_ enabled: Bool) {
         self.enable = enabled;
     }
     
@@ -23,57 +23,57 @@ final class Logger {
     }
 
     
-    func printLog(message: Any, file: String = #file, method: String = #function, line: Int = #line, column: Int = #column){
+    func printLog(_ message: Any, file: String = #file, method: String = #function, line: Int = #line, column: Int = #column){
         #if DEBUG
             print("\((file as NSString).lastPathComponent)[\(line):\(column)], \(method): \(message)")
         #endif
     }
     
-    func d(message:() -> String) {
+    func d(_ message:() -> String) {
         if(enable) {
-            debugPrint("\(Logger.formatter.stringFromDate(NSDate())) [D] \(Logger.TAG) \(message())");
+            debugPrint("\(Logger.formatter.string(from: Date())) [D] \(Logger.TAG) \(message())");
         }
     }
     
-    func i(message:() -> String) {
+    func i(_ message:() -> String) {
         if(enable) {
-            debugPrint("\(Logger.formatter.stringFromDate(NSDate())) [I] \(Logger.TAG) \(message())");
+            debugPrint("\(Logger.formatter.string(from: Date())) [I] \(Logger.TAG) \(message())");
         }
     }
     
-    func w(message:() -> String) {
+    func w(_ message:() -> String) {
         if(enable) {
-            debugPrint("\(Logger.formatter.stringFromDate(NSDate())) [W] \(Logger.TAG) \(message())");
+            debugPrint("\(Logger.formatter.string(from: Date())) [W] \(Logger.TAG) \(message())");
         }
     }
     
-    func e(message:() -> String) {
+    func e(_ message:() -> String) {
         if(enable) {
-            debugPrint("\(Logger.formatter.stringFromDate(NSDate())) [E] \(Logger.TAG) \(message)");
+            debugPrint("\(Logger.formatter.string(from: Date())) [E] \(Logger.TAG) \(message)");
         }
     }
     
-    func d(message:String) {
+    func d(_ message:String) {
         if(enable) {
-            debugPrint("\(Logger.formatter.stringFromDate(NSDate())) [D] \(Logger.TAG) \(message)");
+            debugPrint("\(Logger.formatter.string(from: Date())) [D] \(Logger.TAG) \(message)");
         }
     }
     
-    func i(message:String) {
+    func i(_ message:String) {
         if(enable) {
-            debugPrint("\(Logger.formatter.stringFromDate(NSDate())) [I] \(Logger.TAG) \(message)");
+            debugPrint("\(Logger.formatter.string(from: Date())) [I] \(Logger.TAG) \(message)");
         }
     }
     
-    func w(message:String) {
+    func w(_ message:String) {
         if(enable) {
-            debugPrint("\(Logger.formatter.stringFromDate(NSDate())) [W] \(Logger.TAG) \(message)");
+            debugPrint("\(Logger.formatter.string(from: Date())) [W] \(Logger.TAG) \(message)");
         }
     }
     
-    func e(message:String) {
+    func e(_ message:String) {
         if(enable) {
-            debugPrint("\(Logger.formatter.stringFromDate(NSDate())) [E] \(Logger.TAG) \(message)");
+            debugPrint("\(Logger.formatter.string(from: Date())) [E] \(Logger.TAG) \(message)");
         }
     }
 

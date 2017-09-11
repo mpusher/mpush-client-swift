@@ -8,8 +8,8 @@
 
 import Foundation
 
-enum MessageError:ErrorType {
-    case DecodeError;
+enum MessageError:Error {
+    case decodeError;
 }
 
 class BaseMessage:Message {
@@ -25,7 +25,7 @@ class BaseMessage:Message {
     final func decodeBody() throws {
         guard var body = packet.body else {return};
                 
-        if body.length > 0 {
+        if body.count > 0 {
             //1.解密
             if (packet.hasFlag(Packet.FLAG_CRYPTO)) {
                 if let cipher = connection.context.cipher {
@@ -37,28 +37,33 @@ class BaseMessage:Message {
             
             //2.解压
             if (packet.hasFlag(Packet.FLAG_COMPRESS)) {
-                body = try body.decompress();
+//                body = try body.decompress();
+                body = try body.gunzipped();
             }
             
-            if (body.length == 0) {
-                throw MessageError.DecodeError;
+            if (body.count == 0) {
+                throw MessageError.decodeError;
             }
             packet.body = body;
             
-            decode(body);
+            decode(body as Data);
         }
     }
     
     final func encodeBody() {
         var body = encode()
-        if body.length > 0 {
+        if body.count > 0 {
             //1.压缩
-            if (body.length > ClientConfig.I.compressLimit) {
-                let result = body.compress();
-                if (result.length > 0) {
-                    body = result;
-                    packet.addFlag(Packet.FLAG_COMPRESS);
-                }
+            if (body.count > ClientConfig.I.compressLimit) {
+//                let result = body.compress();
+                do {
+                    let result = try body.gzipped();
+                    if (result.count > 0) {
+                        body = result;
+                        packet.addFlag(Packet.FLAG_COMPRESS);
+                    }
+                    
+                } catch  { }
             }
             
             //2.加密
@@ -73,11 +78,11 @@ class BaseMessage:Message {
         }
     }
     
-    func decode(body:NSData) {
+    func decode(_ body:Data) {
         fatalError("implement me!");
     }
     
-    func encode() -> NSData {
+    func encode() -> Data {
         fatalError("implement me!");
     }
     

@@ -15,11 +15,11 @@ final class HttpProxyHandler: BaseMessageHandler<HttpResponseMessage> {
         self.queue = queue;
     }
     
-    override func decode(packet:Packet, connection:Connection) -> HttpResponseMessage {
+    override func decode(_ packet:Packet, connection:Connection) -> HttpResponseMessage {
         return HttpResponseMessage(packet: packet, conn: connection);
     }
     
-    override func handle(message: HttpResponseMessage) {        
+    override func handle(_ message: HttpResponseMessage) {        
         ClientConfig.I.logger.w({">>> receive one response, sessionId=\(message.getSessionId()), statusCode=\(message.statusCode)"});
         
         if let task = queue.getAndRemove(message.getSessionId()) {

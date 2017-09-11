@@ -10,11 +10,11 @@ import Foundation
 
 final class OkMessageHandler: BaseMessageHandler<OkMessage> {
     
-    override func decode(packet:Packet, connection:Connection) -> OkMessage {
+    override func decode(_ packet:Packet, connection:Connection) -> OkMessage {
         return OkMessage(packet: packet, conn: connection);
     }
     
-    override func handle(message: OkMessage) {
+    override func handle(_ message: OkMessage) {
         ClientConfig.I.logger.w({">>> receive ok message=\(message)"});
     }
 }

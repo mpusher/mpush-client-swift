@@ -10,11 +10,11 @@ import Foundation
 
 final class PushMessageHandler: BaseMessageHandler<PushMessage> {
     
-    override func decode(packet:Packet, connection:Connection) -> PushMessage {
+    override func decode(_ packet:Packet, connection:Connection) -> PushMessage {
         return PushMessage(packet: packet, conn: connection);
     }
     
-    override func handle(message: PushMessage) {
+    override func handle(_ message: PushMessage) {
         ClientConfig.I.logger.w({">>> receive push message=\(message)"});
         let listener = ClientConfig.I.clientListener;
         listener.onReceivePush(message.getConnection().client,

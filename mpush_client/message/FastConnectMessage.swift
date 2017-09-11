@@ -16,14 +16,14 @@ class FastConnectMessage: ByteBufMessage, CustomDebugStringConvertible {
     var maxHeartbeat: Int32!;
     
     init(connection: Connection) {
-        super.init(packet: Packet(cmd: Command.FAST_CONNECT, sessionId: BaseMessage.genSessionId()), conn: connection);
+        super.init(packet: Packet(cmd: Command.fast_CONNECT, sessionId: BaseMessage.genSessionId()), conn: connection);
     }
     
-    override func encode(body:RFIWriter){
-        body.writeString(sessionId)
-        body.writeString(deviceId)
-        body.writeInt32(minHeartbeat)
-        body.writeInt32(maxHeartbeat)
+    override func encode(_ body:RFIWriter){
+        body.write(sessionId)
+        body.write(deviceId)
+        body.write(minHeartbeat)
+        body.write(maxHeartbeat)
     }
     
     var debugDescription: String {

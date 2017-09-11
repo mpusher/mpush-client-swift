@@ -10,16 +10,16 @@ import Foundation
 
 final class ErrorMessageHandler: BaseMessageHandler<ErrorMessage> {
     
-    override func decode(packet:Packet, connection:Connection) -> ErrorMessage {
+    override func decode(_ packet:Packet, connection:Connection) -> ErrorMessage {
         return ErrorMessage(packet: packet, conn: connection);
     }
     
-    override func handle(message: ErrorMessage) {
+    override func handle(_ message: ErrorMessage) {
         ClientConfig.I.logger.w({">>> receive an error message=\(message)"});
-        if (message.cmd == Command.FAST_CONNECT.rawValue) {
+        if (message.cmd == Command.fast_CONNECT.rawValue) {
             //ClientConfig.I.getSessionStorage().clearSession();
             message.getConnection().client.handshake();
-        } else if (message.cmd == Command.HANDSHAKE.rawValue) {
+        } else if (message.cmd == Command.handshake.rawValue) {
             message.getConnection().client.stop();
         } else {
             message.getConnection().reconnect();

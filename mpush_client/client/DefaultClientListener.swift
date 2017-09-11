@@ -9,53 +9,53 @@
 import Foundation
 
 final class DefaultClientListener: ClientListener {
-    private let hb_queue = dispatch_queue_create("hb_queue", nil);
-    private let dispatch_queue = dispatch_queue_create("dispatch_queue", DISPATCH_QUEUE_CONCURRENT);
-    private var listener:ClientListener?;
+    fileprivate let hb_queue = DispatchQueue(label: "hb_queue", attributes: []);
+    fileprivate let dispatch_queue = DispatchQueue(label: "dispatch_queue", attributes: DispatchQueue.Attributes.concurrent);
+    fileprivate var listener:ClientListener?;
     
-    func setListener(listener:ClientListener) {
+    func setListener(_ listener:ClientListener) {
         self.listener = listener;
     }
     
-    func onConnected(client: Client) {
+    func onConnected(_ client: Client) {
         client.fastConnect();
         if let listener = self.listener {
-            dispatch_async(dispatch_queue, {listener.onConnected(client)})
+            dispatch_queue.async(execute: {listener.onConnected(client)})
         }
     }
     
-    func onDisConnected(client: Client) {
+    func onDisConnected(_ client: Client) {
         if let listener = self.listener {
-            dispatch_async(dispatch_queue, {listener.onDisConnected(client)})
+            dispatch_queue.async(execute: {listener.onDisConnected(client)})
         }
     }
     
-    func onHandshakeOk(client: Client, heartbeat: Int) {
+    func onHandshakeOk(_ client: Client, heartbeat: Int) {
         client.bindUser(ClientConfig.I.userId);
         let delay = (Int64)(UInt64(heartbeat/1000 - 1) * NSEC_PER_SEC)
         sendHB(client, delay: delay);
         if let listener = self.listener {
-            dispatch_async(dispatch_queue, {listener.onHandshakeOk(client, heartbeat: heartbeat)})
+            dispatch_queue.async(execute: {listener.onHandshakeOk(client, heartbeat: heartbeat)})
         }
     }
     
-    func onReceivePush(client: Client, content: NSData, messageId: Int32) {
+    func onReceivePush(_ client: Client, content: Data, messageId: Int32) {
         if let listener = self.listener {
-            dispatch_async(dispatch_queue, {listener.onReceivePush(client, content: content, messageId: messageId)})
+            dispatch_queue.async(execute: {listener.onReceivePush(client, content: content, messageId: messageId)})
         }
     }
     
-    func onKickUser(deviceId: String, userId: String) {
+    func onKickUser(_ deviceId: String, userId: String) {
         if let listener = self.listener {
-            dispatch_async(dispatch_queue, {listener.onKickUser(deviceId, userId: userId)})
+            dispatch_queue.async(execute: {listener.onKickUser(deviceId, userId: userId)})
         }
     }
     
     
-    func sendHB(client: Client, delay:Int64) {
+    func sendHB(_ client: Client, delay:Int64) {
         if(client.isRunning()) {
             client.healthCheck();
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, delay), self.hb_queue, {
+            self.hb_queue.asyncAfter(deadline: DispatchTime.now() + Double(delay) / Double(NSEC_PER_SEC), execute: {
                 self.sendHB(client, delay: delay);
             });
         }

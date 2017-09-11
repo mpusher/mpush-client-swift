@@ -11,7 +11,7 @@ import Foundation
 final class AckMessage: ByteBufMessage, CustomDebugStringConvertible {
     
     init(sessionId: Int32, conn: Connection) {
-        super.init(packet: Packet(cmd: Command.ACK,sessionId: sessionId), conn: conn)
+        super.init(packet: Packet(cmd: Command.ack,sessionId: sessionId), conn: conn)
     }
     
     var debugDescription: String {

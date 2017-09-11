@@ -18,8 +18,8 @@ final class ByteBuffer {
         self.readIndex = index;
     }
     
-    init(data:NSData, index:Int=0){
-        self.buffer = NSMutableData(data: data);
+    init(data:Data, index:Int=0){
+        self.buffer = NSData(data: data) as Data as Data as! NSMutableData;
         self.readIndex = index;
     }
     
@@ -27,75 +27,75 @@ final class ByteBuffer {
         self.buffer = buffer;
     }
     
-    func encodeByte(inout data:Int8) {
-        buffer.appendBytes(&data, length:1)
+    func encodeByte(_ data:inout Int8) {
+        buffer.append(&data, length:1)
     }
     
-    func encodeInt16(data:Int16) {
+    func encodeInt16(_ data:Int16) {
         var d = data.bigEndian
-        buffer.appendBytes(&d, length: 4)
+        buffer.append(&d, length: 4)
     }
     
-    func encodeInt32(data:Int32) {
+    func encodeInt32(_ data:Int32) {
         var d = data.bigEndian
-        buffer.appendBytes(&d, length: 4)
+        buffer.append(&d, length: 4)
     }
     
-    func encodeInt64(data:Int64) {
+    func encodeInt64(_ data:Int64) {
         var d = data.bigEndian
-        buffer.appendBytes(&d, length: 8)
+        buffer.append(&d, length: 8)
     }
     
-    func encodeByte(inout data:UInt8) {
-        buffer.appendBytes(&data, length:1)
+    func encodeByte(_ data:inout UInt8) {
+        buffer.append(&data, length:1)
     }
     
-    func encodeInt16(data:UInt16) {
+    func encodeInt16(_ data:UInt16) {
         var d = data.bigEndian
-        buffer.appendBytes(&d, length: 4)
+        buffer.append(&d, length: 4)
     }
     
-    func encodeInt32(data:UInt32) {
+    func encodeInt32(_ data:UInt32) {
         var d = data.bigEndian
-        buffer.appendBytes(&d, length: 4)
+        buffer.append(&d, length: 4)
     }
     
-    func encodeInt64(data:UInt64) {
+    func encodeInt64(_ data:UInt64) {
         var d = data.bigEndian
-        buffer.appendBytes(&d, length: 8)
+        buffer.append(&d, length: 8)
     }
     
-    func encodeString(data:String?) {
+    func encodeString(_ data:String?) {
         if let s = data {
             encodeBytes(Array(s.utf8))
         }else{
-            encodeBytes([UInt8](count: 0, repeatedValue: 0))
+            encodeBytes([UInt8](repeating: 0, count: 0))
         }
     }
     
-    func encodeBytes(data:[UInt8]?) {
+    func encodeBytes(_ data:[UInt8]?) {
         if let b = data {
             var len:UInt16 = UInt16(b.count).bigEndian
-            buffer.appendBytes(&len, length: 2)
+            buffer.append(&len, length: 2)
             if(len > 0) {
-                buffer.appendBytes(b, length: b.count)
+                buffer.append(b, length: b.count)
             }
         }else{
             var len:UInt16 = 0
-            buffer.appendBytes(&len, length: 2)
+            buffer.append(&len, length: 2)
         }
     }
     
-    func encodeBytes(data:[Int8]?) {
+    func encodeBytes(_ data:[Int8]?) {
         if let b = data {
             var len:UInt16 = UInt16(b.count).bigEndian
-            buffer.appendBytes(&len, length: 2)
+            buffer.append(&len, length: 2)
             if(len > 0) {
-                buffer.appendBytes(b, length: b.count)
+                buffer.append(b, length: b.count)
             }
         }else{
             var len:UInt16 = 0
-            buffer.appendBytes(&len, length: 2)
+            buffer.append(&len, length: 2)
         }
     }
     
@@ -129,15 +129,15 @@ final class ByteBuffer {
     
     func decodeString() -> String? {
         if let data = decodeData() {
-            return String(data: data, encoding: NSUTF8StringEncoding)
+            return String(data: data, encoding: String.Encoding.utf8)
         }
         return nil;
     }
     
-    func decodeData() -> NSData? {
+    func decodeData() -> Data? {
         let length = Int(decodeInt16());
         if(length > 0){
-            let data =  buffer.subdataWithRange(NSRange(location: readIndex, length: length));
+            let data =  buffer.subdata(with: NSRange(location: readIndex, length: length));
             readIndex += length;
             return data;
         }
@@ -147,7 +147,7 @@ final class ByteBuffer {
     func decodeBytes() -> [Int8]? {
         let length = Int(decodeInt16());
         if(length > 0){
-            var data = [Int8](count: length, repeatedValue: 0)
+            var data = [Int8](repeating: 0, count: length)
             buffer.getBytes(&data, range: NSRange(location: readIndex, length: length))
             readIndex += length
             return data;
