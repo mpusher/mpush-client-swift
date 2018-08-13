@@ -32,7 +32,7 @@ public final class HttpRequest {
     }
     
     class func post(_ url:String) -> HttpRequest {
-        return HttpRequest(method: HttpMethod.get, uri: url)
+        return HttpRequest(method: HttpMethod.post, uri: url)
     }
     
     func getHeaders() -> Dictionary<String, String> {

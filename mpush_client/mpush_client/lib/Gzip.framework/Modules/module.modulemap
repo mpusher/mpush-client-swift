@@ -1,3 +1,4 @@
 framework module Gzip {
     header "Gzip-Swift.h"
+    requires objc
 }

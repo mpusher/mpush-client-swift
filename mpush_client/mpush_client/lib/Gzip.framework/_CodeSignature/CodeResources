@@ -6,23 +6,23 @@
 	<dict>
 		<key>Headers/Gzip-Swift.h</key>
 		<data>
-		YjOFRc0CuVQCBOwKMIfA02UQ3n4=
+		I2wXdNXAW1yYeImQMAbVtG6da1s=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		ePpd6hwnwT+pA5a57AdD3Qq8kAU=
+		HhO25cb2+ITuLlcC6S9FqHy/1Tw=
 		</data>
 		<key>Modules/Gzip.swiftmodule/x86_64.swiftdoc</key>
 		<data>
-		2XrVzO8Pia1Kb5lTCWWZnNe0Ypo=
+		2K7q9NmjZhn45g2xbNSc9JWCQTQ=
 		</data>
 		<key>Modules/Gzip.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		ziGmdEeRID5cVDO+xyGVSuIA350=
+		+zeMxiC8LaPYYOIFy5mTm88hmdA=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		E6wRhWz1wtejQ0rKk/0aMNDJl6I=
+		aw4sW9G41eTH54wbnHyYc/XSCzc=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -31,44 +31,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			YjOFRc0CuVQCBOwKMIfA02UQ3n4=
+			I2wXdNXAW1yYeImQMAbVtG6da1s=
 			</data>
 			<key>hash2</key>
 			<data>
-			um2DblenFuzq69SSzT/tG1yzjMpBU+qr32AXFsvSyDU=
+			wF92gxudU9z0KlYG/586xM7pxbKpELdVw6hxze3mefE=
 			</data>
 		</dict>
 		<key>Modules/Gzip.swiftmodule/x86_64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			2XrVzO8Pia1Kb5lTCWWZnNe0Ypo=
+			2K7q9NmjZhn45g2xbNSc9JWCQTQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			dMe2h0gcJcycC7NH4RMHVSYscybsda2OVGmtL2a853g=
+			fz3O2ciz6r4sfnSewu5bdTdOSRTMxl7jzMs437EIbB4=
 			</data>
 		</dict>
 		<key>Modules/Gzip.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ziGmdEeRID5cVDO+xyGVSuIA350=
+			+zeMxiC8LaPYYOIFy5mTm88hmdA=
 			</data>
 			<key>hash2</key>
 			<data>
-			Nc/PB10KbQa70JtucWFeS5VxxY0ukeKGpKi5d03AtuY=
+			xhURtUbYOzf4QJ6OvJUL8YGLQd5gmpAzajGiGmST1uE=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			E6wRhWz1wtejQ0rKk/0aMNDJl6I=
+			aw4sW9G41eTH54wbnHyYc/XSCzc=
 			</data>
 			<key>hash2</key>
 			<data>
-			lSHY8hauIH7/Bz6qKOHb/g57vc+uncxxerTsVttgzss=
+			6pXr+GAercNqmcIAAApeF0u96gvXxhyVjVTjysPo6G8=
 			</data>
 		</dict>
 	</dict>

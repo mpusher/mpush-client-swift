@@ -80,7 +80,8 @@
 		390280781F67EF3900CE7E74 /* MPUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390280421F67EF3900CE7E74 /* MPUtils.swift */; };
 		390280791F67EF3900CE7E74 /* RASUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 390280431F67EF3900CE7E74 /* RASUtils.swift */; };
 		3902807A1F67EF3900CE7E74 /* tcpsocket.c in Sources */ = {isa = PBXBuildFile; fileRef = 390280451F67EF3900CE7E74 /* tcpsocket.c */; };
-		3902807E1F67EFD200CE7E74 /* Gzip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3902807D1F67EFD200CE7E74 /* Gzip.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		39EFCE352109B0840099D61B /* Gzip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39EFCE332109B0720099D61B /* Gzip.framework */; };
+		39EFCE362109B0840099D61B /* Gzip.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 39EFCE332109B0720099D61B /* Gzip.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -99,6 +100,20 @@
 			remoteInfo = mpush_client;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		39EFCE322109A7FD0099D61B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				39EFCE362109B0840099D61B /* Gzip.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		39027EAA1F67C7EC00CE7E74 /* mpush_client.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mpush_client.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,8 +200,8 @@
 		390280431F67EF3900CE7E74 /* RASUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RASUtils.swift; sourceTree = "<group>"; };
 		390280451F67EF3900CE7E74 /* tcpsocket.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = tcpsocket.c; sourceTree = "<group>"; };
 		390280461F67EF3900CE7E74 /* tcpsocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tcpsocket.h; sourceTree = "<group>"; };
-		3902807D1F67EFD200CE7E74 /* Gzip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Gzip.framework; sourceTree = "<group>"; };
 		3902807F1F67F04C00CE7E74 /* mpush_client-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "mpush_client-Bridging-Header.h"; sourceTree = "<group>"; };
+		39EFCE332109B0720099D61B /* Gzip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Gzip.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,7 +209,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3902807E1F67EFD200CE7E74 /* Gzip.framework in Frameworks */,
+				39EFCE352109B0840099D61B /* Gzip.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +286,7 @@
 		39027EDB1F67C7FB00CE7E74 /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				39EFCE332109B0720099D61B /* Gzip.framework */,
 				3902802D1F67EF3900CE7E74 /* mpush_client.h */,
 				3902807F1F67F04C00CE7E74 /* mpush_client-Bridging-Header.h */,
 				39027EDC1F67C7FB00CE7E74 /* api */,
@@ -425,7 +441,6 @@
 		390280351F67EF3900CE7E74 /* util */ = {
 			isa = PBXGroup;
 			children = (
-				3902807D1F67EFD200CE7E74 /* Gzip.framework */,
 				390280361F67EF3900CE7E74 /* AESUtils.swift */,
 				390280371F67EF3900CE7E74 /* buffer */,
 				3902803F1F67EF3900CE7E74 /* Extensions.swift */,
@@ -469,6 +484,7 @@
 				39027EA61F67C7EC00CE7E74 /* Sources */,
 				39027EA71F67C7EC00CE7E74 /* Frameworks */,
 				39027EA81F67C7EC00CE7E74 /* Resources */,
+				39EFCE322109A7FD0099D61B /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -527,7 +543,6 @@
 				TargetAttributes = {
 					39027EA91F67C7EC00CE7E74 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = X8H5NQ8BUY;
 						ProvisioningStyle = Automatic;
 					};
 					39027EBD1F67C7EC00CE7E74 = {
@@ -813,11 +828,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = X8H5NQ8BUY;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/mpush_client/lib/util",
 					"$(PROJECT_DIR)/mpush_client/lib/Infrastructure/util",
+					"$(PROJECT_DIR)/mpush_client/lib",
 				);
 				INFOPLIST_FILE = mpush_client/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -838,11 +854,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = X8H5NQ8BUY;
+				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/mpush_client/lib/util",
 					"$(PROJECT_DIR)/mpush_client/lib/Infrastructure/util",
+					"$(PROJECT_DIR)/mpush_client/lib",
 				);
 				INFOPLIST_FILE = mpush_client/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -868,7 +885,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mo9.mpush-clientTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mpush_client.app/mpush_client";
 			};
 			name = Debug;
@@ -882,7 +899,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mo9.mpush-clientTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mpush_client.app/mpush_client";
 			};
 			name = Release;
